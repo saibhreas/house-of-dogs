@@ -1,8 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-
 const serviceSchema = new Schema({
-  
   dogWalking: {
     type: String,
   },
@@ -15,17 +13,12 @@ const serviceSchema = new Schema({
   overnightSitting: {
     type: String,
   },
-  doggyDaycare: 
-    {
-      type: String,
-     
-    },
-  fullKennel : 
-    {
-      type: String,
-     
-    },
- 
+  doggyDaycare: {
+    type: String,
+  },
+  fullKennel: {
+    type: String,
+  },
 });
 
 const Service = model("Service", serviceSchema);
