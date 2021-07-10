@@ -8,6 +8,12 @@ const providerSchema = new Schema({
     unique: true,
     trim: true,
   },
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
   email: {
     type: String,
     required: true,
@@ -35,6 +41,10 @@ const providerSchema = new Schema({
       required: true,
     },
   ],
+  about: {
+    type: String,
+    trim: true,
+  },
 },
 {
   toJSON: {
@@ -56,8 +66,7 @@ providereSchema.pre('save', async function (next) {
 providerSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
-
+ 
 const Provider = model("Provider", providerSchema);
 
 module.exports = Provider;

@@ -31,7 +31,7 @@ const dogSchema =  new Schema ({
     required: true,
     trim: true,
   },
-  sex: {
+  geneder: {
     type: String,
     required: true,
     trim: true,
