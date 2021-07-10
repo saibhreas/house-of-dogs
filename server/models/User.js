@@ -15,11 +15,11 @@ const ownerProfileSchema = new Schema({
     unique: true,
     trim: true,
   },
-  email : {
+  email: {
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
   password : {
     type: String,
@@ -53,28 +53,14 @@ const ownerProfileSchema = new Schema({
     type: String,
     trim: true,
   },
-  // requiresFeeding: {
-  //   type: Boolean,
-  //   trim: true,
-  // },
-  // requiresHousing: {
-  //   type: Boolean,
-  //   trim: true,
-  // },
-  // preferredProvider: {
-  //   type: String,
-  //   trim: true,
-  // },
-  // lastProvider: {
-  //   type: String,
-  //   trim: true,
-  // },
-  // requiresMedication: [
-  //   {
-  //     type: String,
-  //     trim: true,
-  //   },
-  // ],
+    // set this to use virtual below
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+  
+
 });
 
 const User = model('User', UserSchema);

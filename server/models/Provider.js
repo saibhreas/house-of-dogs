@@ -12,7 +12,7 @@ const providerSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
   password: {
     type: String,
