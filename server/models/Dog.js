@@ -1,6 +1,13 @@
 const { Schema, model } = require('mongoose');
 
 const dogSchema =  new Schema ({
+  _id: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  
   name: {
     type: String,
     required: true,
@@ -47,6 +54,6 @@ const dogSchema =  new Schema ({
 
 });
 
-const User = model('Dog', DogSchema);
+const Dog = model('Dog', DogSchema);
 
 module.exports = Dog;
