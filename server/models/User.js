@@ -49,11 +49,12 @@ const ownerProfileSchema = new Schema({
     trim: true,
     
   },
-  services : {// will become an array
+  services : {
     type: String,
     trim: true,
   },
-    // set this to use virtual below
+
+  // set this to use virtual below
   {
     toJSON: {
       virtuals: true,
