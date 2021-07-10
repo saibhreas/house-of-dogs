@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const OwnerprofileSchema = new Schema({
+const ownerProfileSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -17,21 +17,28 @@ const OwnerprofileSchema = new Schema({
   password : {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 2,
   },
   phoneNumber :{
     type: String,
     required: true,
     minlength: 10,
-  }
+  },
   address : {
     type: String,
     required: true,
-    unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
-  }
+    unique: true
+    
+  },
+  numberPets: {
+    type: Int,
+    required: true,
+    trim: true,
+    
+  },
   petsName: {
     type: String,
+    required: true,
     trim: true,
     
   },
