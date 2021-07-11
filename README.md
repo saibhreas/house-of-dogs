@@ -35,4 +35,4 @@ App is Full Stack  Mongo Express...
 
   * Alex
   * Chris :P
-  * Siobhan: Dolphins, gotta love em.
+  * Siobhan: **Dolphins**, gotta love em!.
