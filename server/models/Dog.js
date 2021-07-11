@@ -49,6 +49,7 @@ const dogSchema =  new Schema ({
     type: String,
     trim: true,
   },
+
 });
 
 const Dog = model('Dog', dogSchema);
