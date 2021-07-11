@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "60e8cd1b936fda4775c576b2",
+    "name": "Castro",
+    "email": "beulahcastro@comtent.com",
+    "password":"123",
+    "phone": "+1 (973) 552-3368",
+    "address": "425 Grand Avenue, Kingstowne, Federated States Of Micronesia, 8842"
+  },
+  {
+    "_id": "60e8cd1b2a6a8b6fa7c46365",
+    "name": "Griffin",
+    "email": "beulahgriffin@comtent.com",
+    "password":"123",
+    "phone": "+1 (867) 563-3641",
+    "address": "242 Gem Street, Draper, Florida, 3680"
+  },
+  {
+    "_id": "60e8cd1b378b4725818dc755",
+    "name": "White",
+    "email": "beulahwhite@comtent.com",
+    "password":"123",
+    "phone": "+1 (801) 562-3980",
+    "address": "338 Montgomery Street, Mammoth, Louisiana, 7205"
+  },
+  {
+    "_id": "60e8cd1bef6b3f1d539f4027",
+    "name": "Beck",
+    "email": "beulahbeck@comtent.com",
+    "password":"123",
+    "phone": "+1 (902) 431-2890",
+    "address": "796 Clifford Place, Saranap, American Samoa, 9426"
+  },
+  {
+    "_id": "60e8cd1b1a3e019be10015af",
+    "name": "Oneil",
+    "email": "beulahoneil@comtent.com",
+    "password":"123",
+    "phone": "+1 (876) 519-3190",
+    "address": "307 Howard Place, Harold, Kansas, 203"
+  },
+  {
+    "_id": "60e8cd1bcdc8700404f56ffa",
+    "name": "Mccray",
+    "email": "beulahmccray@comtent.com",
+    "password":"123",
+    "phone": "+1 (938) 466-2569",
+    "address": "635 Farragut Road, Ripley, Indiana, 7082"
+  }
+]
