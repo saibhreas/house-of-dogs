@@ -1,0 +1,10 @@
+[
+    {
+        "dogWalking": "dogWalking",
+        "petSitting": "petSitting",
+        "petGrooming": "petGrooming",
+        "overnightSitting": "overnightSitting",
+        "doggyDaycare": "doggyDaycare",
+        "fullKennel": "fullKennel"
+    }
+]

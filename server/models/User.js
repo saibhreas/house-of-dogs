@@ -3,13 +3,12 @@ const bcrypt = require("bcrypt");
 
 const userSchema = new Schema(
   {
-    _id: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
-
+    // _id: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    //   trim: true,
+    // },
     name: {
       type: String,
       required: true,
@@ -37,9 +36,8 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    //todo fix syntax for number of pets
     numberPets: {
-      type: String,
+      type: Number,
       required: true,
       trim: true,
     },
@@ -48,8 +46,12 @@ const userSchema = new Schema(
       required: true,
       trim: true,
     },
-    //todo fix syntax for this array
-    //services: [serviceSchema],
+    // services: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Service",
+    //   },
+    // ],
   },
   {
     toJSON: {
