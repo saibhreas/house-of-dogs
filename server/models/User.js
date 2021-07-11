@@ -1,47 +1,7 @@
-<<<<<<< HEAD
-const { Schema, model } = require('mongoose');
-
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
-  requiresWalking: {
-    type: String,
-    trim: true,
-  },
-  requiresFeeding: {
-    type: Boolean,
-    trim: true,
-  },
-  requiresHousing: {
-    type: Boolean,
-    trim: true,
-  },
-  preferredProvider: {
-    type: String,
-    trim: true,
-  },
-  lastProvider: {
-    type: String,
-    trim: true,
-  },
-  requiresMedication: [
-    {
-      type: String,
-      trim: true,
-    },
-  ],
-});
-
-const User = model('User', UserSchema);
-=======
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const ownerProfileSchema = new Schema(
+const userSchema = new Schema(
   {
     _id: {
       type: String,
@@ -77,9 +37,8 @@ const ownerProfileSchema = new Schema(
       required: true,
       unique: true,
     },
-    //todo fix syntax for number of pets
     numberPets: {
-      type: String,
+      type: Number,
       required: true,
       trim: true,
     },
@@ -88,8 +47,12 @@ const ownerProfileSchema = new Schema(
       required: true,
       trim: true,
     },
-    //todo fix syntax for this array
-    //services: [serviceSchema],
+    services: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Service",
+      },
+    ],
   },
   {
     toJSON: {
@@ -119,7 +82,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 //   return this.savedBooks.length;
 // });
 
-const User = model("User", UserSchema);
->>>>>>> 2e7aae5d48d174ac432fc20ffe663f879046cde4
+const User = model("User", userSchema);
 
 module.exports = User;

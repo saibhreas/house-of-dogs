@@ -35,10 +35,10 @@ const providerSchema = new Schema({
     required: true,
     unique: true,
   },
-  service: [
+  veterinarian: [
     {
-      type: String,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref: "Veterinarian",
     },
   ],
   about: {
