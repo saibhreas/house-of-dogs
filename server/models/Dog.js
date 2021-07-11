@@ -31,7 +31,7 @@ const dogSchema =  new Schema ({
     required: true,
     trim: true,
   },
-  geneder: {
+  gender: {
     type: String,
     required: true,
     trim: true,
@@ -54,6 +54,6 @@ const dogSchema =  new Schema ({
 
 });
 
-const Dog = model('Dog', DogSchema);
+const Dog = model('Dog', dogSchema);
 
 module.exports = Dog;
