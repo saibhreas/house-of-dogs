@@ -1,12 +1,12 @@
 const { Schema, model } = require('mongoose');
 
 const dogSchema =  new Schema ({
-  _id: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
+  // _id: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  //   trim: true,
+  // },
   
   name: {
     type: String,
@@ -20,14 +20,13 @@ const dogSchema =  new Schema ({
     trim: true,
     //pick closest match
   },
-
   age: {
-    type: Int,
+    type: Number,
     required: true,
     trim: true,
   },
   weight: {
-    type: Int,
+    type: Number,
     required: true,
     trim: true,
   },
@@ -50,8 +49,6 @@ const dogSchema =  new Schema ({
     type: String,
     trim: true,
   },
-
-
 });
 
 const Dog = model('Dog', dogSchema);
