@@ -2,12 +2,12 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const providerSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
+  // _id: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  //   trim: true,
+  // },
   name: {
     type: String,
     required: true,
@@ -53,7 +53,7 @@ const providerSchema = new Schema({
 }
 );
 
-providereSchema.pre('save', async function (next) {
+providerSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
