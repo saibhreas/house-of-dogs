@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const ownerProfileSchema = new Schema(
+const userSchema = new Schema(
   {
     _id: {
       type: String,
@@ -79,6 +79,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 //   return this.savedBooks.length;
 // });
 
-const User = model("User", UserSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
