@@ -1,14 +1,9 @@
-const { Schema, model } = require("mongoose");
+const mongoose =require ('mongoose');
+const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const providerSchema = new Schema({
-  // _id: {
-  //   type: String,
-  //   required: true,
-  //   unique: true,
-  //   trim: true,
-  // },
-  name: {
+   name: {
     type: String,
     required: true,
     unique: true,
@@ -67,6 +62,6 @@ providerSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
  
-const Provider = model("Provider", providerSchema);
+const Provider = mongoose.model("Provider", providerSchema);
 
 module.exports = Provider;
