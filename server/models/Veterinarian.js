@@ -1,13 +1,12 @@
 const { Schema, model } = require('mongoose');
 
 const veterinarianSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
-  
+  // _id: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  //   trim: true,
+  // },
   name: {
     type: String,
     required: true,

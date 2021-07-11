@@ -1,15 +1,14 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const ownerProfileSchema = new Schema(
+const userSchema = new Schema(
   {
-    _id: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
-
+    // _id: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    //   trim: true,
+    // },
     name: {
       type: String,
       required: true,
@@ -37,9 +36,8 @@ const ownerProfileSchema = new Schema(
       required: true,
       unique: true,
     },
-    //todo fix syntax for number of pets
     numberPets: {
-      type: String,
+      type: Number,
       required: true,
       trim: true,
     },
@@ -48,8 +46,12 @@ const ownerProfileSchema = new Schema(
       required: true,
       trim: true,
     },
-    //todo fix syntax for this array
-    //services: [serviceSchema],
+    // services: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Service",
+    //   },
+    // ],
   },
   {
     toJSON: {
@@ -79,6 +81,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 //   return this.savedBooks.length;
 // });
 
-const User = model("User", UserSchema);
+const User = model("User", userSchema);
 
 module.exports = User;
