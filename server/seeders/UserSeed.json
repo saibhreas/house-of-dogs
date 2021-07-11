@@ -1,0 +1,66 @@
+[
+    {
+      "name": "Michael Acevedo",
+      "email": "michaelacevedo@quizka.com",
+      "password": 123,
+      "phoneNumber": "+1 (996) 465-3505",
+      "address": "147 Main Street, Ezel, Virginia, 3782",
+      "numberPets": 2,
+      "petsName": "dolore",
+      "services": [
+        "dogWalking"
+      ]
+    },
+    {
+      "name": "Burns Sargent",
+      "email": "burnssargent@quizka.com",
+      "password": 123,
+      "phoneNumber": "+1 (850) 520-2700",
+      "address": "242 Nassau Avenue, Como, Puerto Rico, 3819",
+      "numberPets": 2,
+      "petsName": "ipsum",
+      "services": [
+        "velit",
+        "commodo"
+      ]
+    },
+    {
+      "name": "Melody Cortez",
+      "email": "melodycortez@quizka.com",
+      "password": 123,
+      "phoneNumber": "+1 (875) 484-2607",
+      "address": "871 Madison Street, Bascom, Nebraska, 5735",
+      "numberPets": 2,
+      "petsName": "mollit",
+      "services": [
+        "fugiat",
+        "qui"
+      ]
+    },
+    {
+      "name": "Sexton Boone",
+      "email": "sextonboone@quizka.com",
+      "password": 123,
+      "phoneNumber": "+1 (984) 479-2979",
+      "address": "536 John Street, Elbert, Mississippi, 798",
+      "numberPets": 2,
+      "petsName": "cupidatat",
+      "services": [
+        "reprehenderit",
+        "proident"
+      ]
+    },
+    {
+      "name": "Sophia Tyson",
+      "email": "sophiatyson@quizka.com",
+      "password": 123,
+      "phoneNumber": "+1 (961) 529-3586",
+      "address": "831 Bergen Court, Onton, Iowa, 9124",
+      "numberPets": 2,
+      "petsName": "ex",
+      "services": [
+        "voluptate",
+        "ipsum"
+      ]
+    }
+  ]
