@@ -37,8 +37,9 @@ const ownerProfileSchema = new Schema(
       required: true,
       unique: true,
     },
+    //todo fix syntax for number of pets
     numberPets: {
-      type: Int,
+      type: String,
       required: true,
       trim: true,
     },
@@ -47,7 +48,8 @@ const ownerProfileSchema = new Schema(
       required: true,
       trim: true,
     },
-    services: [serviceSchema],
+    //todo fix syntax for this array
+    //services: [serviceSchema],
   },
   {
     toJSON: {
