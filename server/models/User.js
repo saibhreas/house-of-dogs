@@ -3,13 +3,12 @@ const bcrypt = require("bcrypt");
 
 const userSchema = new Schema(
   {
-    _id: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
-
+    // _id: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    //   trim: true,
+    // },
     name: {
       type: String,
       required: true,
@@ -47,12 +46,12 @@ const userSchema = new Schema(
       required: true,
       trim: true,
     },
-    services: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Service",
-      },
-    ],
+    // services: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Service",
+    //   },
+    // ],
   },
   {
     toJSON: {
