@@ -4,47 +4,60 @@ const typeDefs = gql`
   type User {
     _id: ID!
     name: String!
-    services: String!
-    email : String!
-    password : String!
-    phoneNumber : String!
-    address : String!
-    numberPets : Int!
-    petsName : [String!]
+    email:[String]!
+    password:String!
+    phoneNumber: String!
+    address: String!
+    numberPets: Int!
+    petsName: String!
 
   }
   type Provider {
     _id: ID!
     name: String
-    skills: [String]!
+    email: [String]!
+    password:String !
+    phoneNumber:String !
+    address:String!
+    veterinarian:[Veterinarian]
+    about:String
   }
   type Dog {
     _id: ID!
-    name: String
-    skills: [String]!
+    name: String!
+    breed: String!
+    age: Number!
+    weight: Number!
+    gender: String!
+    veterinaryContact: String!//*comes from form
+    medicated:Boolean!
+    medications: String
+    
   }
   type Veterinarian {
     _id: ID!
     name: String
-    skills: [String]!
+    email: [String]!
+    phoneNumber:String !
+    address:String!
   }
   type Service {
-    _id: ID!
-    name: String
-    skills: [String]!
+  dogWalking:Boolean!
+  petSitting:Boolean!
+  petGrooming:Boolean!
+  overnightSitting:Boolean!
+  doggyDaycare:Boolean!
+  fullKennel:Boolean!
   }
 
   type Query {
-    profiles: [Profile]!
-    profile(profileId: ID!): Profile
+    users: [User]
+    user(UserId: ID!): User
   }
-
-  type Mutation {
-    addProfile(name: String!): Profile
-    addSkill(profileId: ID!, skill: String!): Profile
-    removeProfile(profileId: ID!): Profile
-    removeSkill(profileId: ID!, skill: String!): Profile
+  type Mutation{
+    addUser(name: String!): User
   }
+  
 `;
 
 module.exports = typeDefs;

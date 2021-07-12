@@ -1,14 +1,9 @@
-const { Schema, model } = require("mongoose");
+const mongoose =require ('mongoose');
+const { Schema } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema(
   {
-    // _id: {
-    //   type: String,
-    //   required: true,
-    //   unique: true,
-    //   trim: true,
-    // },
     name: {
       type: String,
       required: true,
@@ -81,6 +76,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 //   return this.savedBooks.length;
 // });
 
-const User = model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
