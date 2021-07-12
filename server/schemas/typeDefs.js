@@ -4,24 +4,25 @@ const typeDefs = gql`
   type User {
     _id: ID!
     name: String!
-    email:[String]!
-    password:String!
+    email: [String]!
+    password: String!
     phoneNumber: String!
     address: String!
     numberPets: Int!
     petsName: String!
-
   }
+
   type Provider {
     _id: ID!
     name: String
     email: [String]!
-    password:String !
-    phoneNumber:String !
-    address:String!
-    veterinarian:[Veterinarian]
-    about:String
+    password: String!
+    phoneNumber: String!
+    address: String!
+    veterinarian: [Veterinarian]
+    about: String
   }
+
   type Dog {
     _id: ID!
     name: String!
@@ -30,7 +31,7 @@ const typeDefs = gql`
     weight: Number!
     gender: String!
     veterinaryContact: String!
-    medicated:Boolean!
+    medicated: Boolean!
     medications: String
     
   }

@@ -1,7 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-const { User, Dog, Provider, Service, Veterinarian} = require('../models');
+//TODO implement when we get the front up
+//const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const { User } = require('../models');
 
 const resolvers = {
   Query: {

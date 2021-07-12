@@ -1,5 +1,8 @@
-const mongoose =require ('mongoose');
-const { Schema } = 'mongoose';
+
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
+
 
 const veterinarianSchema = new Schema({
   name: {

@@ -4,11 +4,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 const db = require('../config/connection');
 
-const DogSeeds = require('./DogSeed.json');
-const ProviderSeeds = require('./ProviderSeed.json');
-const UserSeeds = require('./UserSeed.json');
-const VeterinarianSeeds = require('./VeterinarianSeed.json');
-const ServiceSeeds = require('./ServiceSeed.json');
+const DogSeeds = require('./DogSeeds.json');
+const ProviderSeeds = require('./ProviderSeeds.json');
+const UserSeeds = require('./UserSeeds.json');
+const VeterinarianSeeds = require('./VeterinarianSeeds.json');
+const ServiceSeeds = require('./ServiceSeeds.json');
 
 const { User, Provider, Dog, Veterinarian, Service } = require('../models');
 
