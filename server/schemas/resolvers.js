@@ -5,42 +5,42 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');const { Use
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
+    users: async () => {
+      return User.find();
     },
 
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
     },
+  },
+  me: async (parent, args, context) => {
+    if (context.user) {
+      console.log(" this is id: ,context.user._id ")
+      return User.findOne({ _id: context.user._id });
+    }
+    throw new AuthenticationError('You need to be logged in!');
   },
 
   Mutation: {
-    addProfile: async (parent, { name }) => {
-      return Profile.create({ name });
+    addUser: async (parent, { name, email, password }) => {
+      const user=await User.create({
+        name,
+        email, 
+        password
+      });
+      const token = signToken(user);
+      return { token, user };
     },
-    addSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        {
-          $addToSet: { skills: skill },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
-    },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        { $pull: { skills: skill } },
-        { new: true }
-      );
-    },
-  },
+    login:async (parent, {email, password}) =>{
+      const user = await User.findOne({email});
+
+      if (!user){
+        console.log("This is the New User: ",User);
+        throw new AuthenticationError("Incorrect Password");
+      }
+    }
+  }
+
 };
 
 module.exports = resolvers;
