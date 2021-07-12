@@ -1,26 +1,28 @@
-const { Schema, model } = require("mongoose");
+const mongoose =require ('mongoose');
+const { Schema } = mongoose;
 
 const serviceSchema = new Schema({
   dogWalking: {
-    type: String,
+    type: Boolean,
   },
   petSitting: {
-    type: String,
+    type: Boolean,
   },
   petGrooming: {
-    type: String,
+    type: Boolean,
   },
   overnightSitting: {
-    type: String,
+    type: Boolean,
   },
   doggyDaycare: {
-    type: String,
+    type: Boolean,
   },
   fullKennel: {
-    type: String,
+    type: Boolean,
   },
 });
 
-const Service = model("Service", serviceSchema);
+const Service = mongoose.model("Service", serviceSchema);
 
 module.exports = Service;
+
