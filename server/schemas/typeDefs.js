@@ -29,7 +29,7 @@ const typeDefs = gql`
     age: Number!
     weight: Number!
     gender: String!
-    veterinaryContact: String!//*comes from form
+    veterinaryContact: String!
     medicated:Boolean!
     medications: String
     
