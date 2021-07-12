@@ -1,13 +1,8 @@
-const { Schema, model } = require('mongoose');
+const mongoose =require ('mongoose');
+const { Schema } = mongoose;
 
 const dogSchema =  new Schema ({
-  // _id: {
-  //   type: String,
-  //   required: true,
-  //   unique: true,
-  //   trim: true,
-  // },
-  
+   
   name: {
     type: String,
     required: true,
@@ -52,6 +47,6 @@ const dogSchema =  new Schema ({
 
 });
 
-const Dog = model('Dog', dogSchema);
+const Dog = mongoose.model('Dog', dogSchema);
 
 module.exports = Dog;

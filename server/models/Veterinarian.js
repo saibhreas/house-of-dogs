@@ -1,12 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose =require ('mongoose');
+const { Schema } = 'mongoose';
 
 const veterinarianSchema = new Schema({
-  // _id: {
-  //   type: String,
-  //   required: true,
-  //   unique: true,
-  //   trim: true,
-  // },
   name: {
     type: String,
     required: true,
@@ -33,6 +28,6 @@ const veterinarianSchema = new Schema({
   
 });
 
-const Veterinarian = model('Veterinarian', veterinarianSchema);
+const Veterinarian = mongoose.model('Veterinarian', veterinarianSchema);
 
 module.exports = Veterinarian;
