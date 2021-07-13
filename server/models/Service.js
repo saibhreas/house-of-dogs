@@ -2,27 +2,20 @@ const mongoose =require ('mongoose');
 const { Schema } = mongoose;
 
 const serviceSchema = new Schema({
-  dogWalking: {
-    type: Boolean,
+  name: {
+    type: String,
+    required: true,
+    trim: true,
   },
-  petSitting: {
-    type: Boolean,
-  },
-  petGrooming: {
-    type: Boolean,
-  },
-  overnightSitting: {
-    type: Boolean,
-  },
-  doggyDaycare: {
-    type: Boolean,
-  },
-  fullKennel: {
-    type: Boolean,
-  },
+  provider: {
+    type: Schema.Types.ObjectId,
+    ref: 'Provider'
+  }
+  
+  
 });
 
-const Service = mongoose.model("Service", serviceSchema);
+const Service = mongoose.model('Service', serviceSchema);
 
 module.exports = Service;
 

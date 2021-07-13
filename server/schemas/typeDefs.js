@@ -19,7 +19,6 @@ const typeDefs = gql`
     password: String!
     phoneNumber: String!
     address: String!
-    veterinarian: [Veterinarian]
     about: String
   }
 

@@ -1,15 +1,20 @@
+
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+
+
 
 const veterinarianSchema = new Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
     trim: true,
   },
   email : {
     type: String,
     required: true,
+    unique: true,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   phoneNumber :{
@@ -20,10 +25,9 @@ const veterinarianSchema = new Schema({
   address : {
     type: String,
     required: true,
-    
+    unique: true
     
   },
- 
   
 });
 
