@@ -28,9 +28,12 @@ Service providers get access to pet owners, use of cloud database for appointmen
 
 *Frontend/Client* 
 
-  * is an Apollo/client server utilizing middleware for authentication, web tokens (and Stripe?).
+  * is an Apollo/client server utilizing middleware for authentication, web tokens and Stripe?.
   React router App demonstrating Global States and Reducers
   Integrates JSON token system, as middleware for authentication, with graphql for database querry management.
+
+*Server*
+  * is Apollo-express/graphql  utilizing middleware for authentication, web tokens, and Stripe?  
 
 ### Installation and integeration:
   * 3 package.json sets of dependencies
@@ -41,6 +44,14 @@ Service providers get access to pet owners, use of cloud database for appointmen
       * npm install jwt-decode
       * npm install --save react-router-dom
         
+    * Server
+      * npm apollo-server-express 
+        bcrypt
+        express
+        graphql
+        jsonwebtoken
+        mongoose
+        stripe
 
 ### Technologies
 
