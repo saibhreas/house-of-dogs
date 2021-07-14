@@ -37,8 +37,14 @@ Service providers get access to pet owners, use of cloud database for appointmen
 
 ### Installation and integeration:
   * 3 package.json sets of dependencies
-      * server :
-        * bycrypt, express, graphql, jswonwebtoken, mongoose, nodemon
+      * Main :
+        * "scripts":
+          {"start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  }
     * Client
       * npm install apollo-boost graphql-tag graphql --save
       * npm install jwt-decode
@@ -52,7 +58,7 @@ Service providers get access to pet owners, use of cloud database for appointmen
         jsonwebtoken
         mongoose
         stripe
-
+      * npm install stripe --save
 ### Technologies
 
 ### Authors
