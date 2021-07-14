@@ -36,6 +36,10 @@ Service providers get access to pet owners, use of cloud database for appointmen
   * 3 package.json sets of dependencies
       * server :
         * bycrypt, express, graphql, jswonwebtoken, mongoose, nodemon
+    * Client
+      * npm install apollo-boost graphql-tag graphql --save
+      * npm install jwt-decode
+      * npm install --save react-router-dom
         
 
 ### Technologies
