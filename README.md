@@ -21,7 +21,16 @@ Service providers get access to pet owners, use of cloud database for appointmen
   * [Licence](###Licence)
  
 ## Description: Full Stack MERN with Apollo GraphQL server
-App is Full Stack  Mongo Express...
+
+### *App is Full Stack  Mongo Express...*
+
+
+
+*Frontend/Client* 
+
+  * is an Apollo/client server utilizing middleware for authentication, web tokens (and Stripe?).
+  React router App demonstrating Global States and Reducers
+  Integrates JSON token system, as middleware for authentication, with graphql for database querry management.
 
 ### Installation and integeration:
   * 3 package.json sets of dependencies
