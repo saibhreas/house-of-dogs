@@ -35,6 +35,14 @@ const typeDefs = gql`
     petsunt: Int!
   }
 
+  type Veterinarian {
+    _id: ID!
+    name: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+  }
+
   type Dog {
     _id: ID!
     name: String!
@@ -42,17 +50,9 @@ const typeDefs = gql`
     age: Number!
     weight: Number!
     gender: String!
-    veterinaryContact: String!
-    medicated:Boolean!
+    veterinerian: Veterinarian
+    medicated: Boolean!
     medications: String
-  }
-
-  type Veterinarian {
-    _id: ID!
-    name: String
-    email: [String]!
-    phoneNumber:String !
-    address:String!
   }
 
   type Query {
