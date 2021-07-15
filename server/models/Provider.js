@@ -1,5 +1,10 @@
-const mongoose =require ('mongoose');
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
+<<<<<<< HEAD
+=======
+
+const { AppointmentSchema } = require('./Appointment');
+>>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 
 const providerSchema = new Schema({
   name: {
@@ -12,11 +17,6 @@ const providerSchema = new Schema({
     required: true,
     match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
-  password: {
-    type: String,
-    required: true,
-    minlength: 2,
-  },
   phoneNumber: {
     type: String,
     required: true,
@@ -27,17 +27,20 @@ const providerSchema = new Schema({
     required: true,
    
   },
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
   about: {
     type: String,
     trim: true,
   },
-},
-{
-  toJSON: {
-    virtuals: true,
+  serviceId: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Service'
   },
+<<<<<<< HEAD
 }
 );
 
@@ -46,5 +49,17 @@ const providerSchema = new Schema({
 
  
 const Provider = mongoose.model('Provider', providerSchema);
+=======
+  appointments: [AppointmentSchema]
+},
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
+
+const Provider = mongoose.model("Provider", providerSchema);
+>>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 
 module.exports = Provider;
