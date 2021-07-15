@@ -1,27 +1,40 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
+  type Service {
+    name: String!
+  }
+
+  type Appointment {
+    userId: ID!,
+    dogId: ID!,
+    from: Date!
+    to: Date!
+  }
+
+  type Provider {
+    _id: ID!
+    name: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+    about: String!
+    service: Service
+    appointments: [Appointment]
+  }
+
   type User {
     _id: ID!
     name: String!
-    email:[String]!
-    password:String!
+    email: String!
+    password: String!
     phoneNumber: String!
     address: String!
-    numberPets: Int!
-    petsName: String!
+    petsCount: Int!
+    petsunt: Int!
+  }
 
-  }
-  type Provider {
-    _id: ID!
-    name: String
-    email: [String]!
-    password:String !
-    phoneNumber:String !
-    address:String!
-    veterinarian:[Veterinarian]
-    about:String
-  }
   type Dog {
     _id: ID!
     name: String!
@@ -32,8 +45,8 @@ const typeDefs = gql`
     veterinaryContact: String!
     medicated:Boolean!
     medications: String
-    
   }
+
   type Veterinarian {
     _id: ID!
     name: String
@@ -41,21 +54,15 @@ const typeDefs = gql`
     phoneNumber:String !
     address:String!
   }
-  type Service {
-  dogWalking:Boolean!
-  petSitting:Boolean!
-  petGrooming:Boolean!
-  overnightSitting:Boolean!
-  doggyDaycare:Boolean!
-  fullKennel:Boolean!
-  }
 
   type Query {
     users: [User]
     user(UserId: ID!): User
   }
-  type Mutation{
-    addUser(name: String!): User
+
+  type Mutation {
+    createUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
   
 `;

@@ -1,10 +1,20 @@
 [
     {
-        "dogWalking": "dogWalking",
-        "petSitting": "petSitting",
-        "petGrooming": "petGrooming",
-        "overnightSitting": "overnightSitting",
-        "doggyDaycare": "doggyDaycare",
-        "fullKennel": "fullKennel"
+        "name": "Dog Walking"
+    },
+    {
+        "name": "Pet Sitting"
+    },
+    {
+        "name": "Pet Grooming"
+    },
+    {
+        "name": "Overnight Sitting"
+    },
+    {
+        "name": "Doggy Daycare"
+    },
+    {
+        "name": "Full Kennel"
     }
 ]
