@@ -10,7 +10,6 @@ const userSchema = new Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
       trim: true,
     },
     email: {
@@ -26,13 +25,9 @@ const userSchema = new Schema(
     },
     phoneNumber: {
       type: String,
-      required: true,
-      minlength: 10,
     },
     address: {
       type: String,
-      required: true,
-      unique: true,
     },
     pets: [DogSchema],
     appointments: [AppointmentSchema]

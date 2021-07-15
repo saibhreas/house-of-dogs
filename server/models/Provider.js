@@ -7,7 +7,6 @@ const providerSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   email: {
@@ -24,7 +23,6 @@ const providerSchema = new Schema({
   address: {
     type: String,
     required: true,
-    unique: true,
   },
   about: {
     type: String,
