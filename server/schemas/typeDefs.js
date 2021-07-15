@@ -56,13 +56,16 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
-    user(UserId: ID!): User
+    services: [Service]
+    providers: [Provider]
+    provider(providerId: ID!): Provider
+    me: User
   }
 
   type Mutation {
-    createUser(username: String!, email: String!, password: String!): Auth
+    createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
     login(email: String!, password: String!): Auth
+    saveAppointment(appointment: Appointment!): Appointment
   }
   
 `;
