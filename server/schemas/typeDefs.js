@@ -5,6 +5,7 @@ const typeDefs = gql`
   scalar Date
 
   type Service {
+    _id: Int!
     name: String!
   }
 
@@ -28,8 +29,8 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     email: String!
-    phoneNumber: String!
-    address: String!
+    phoneNumber: String
+    address: String
     about: String!
     service: Service
     appointments: [Appointment]
@@ -40,11 +41,10 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     email: String!
-    password: String!
-    phoneNumber: String!
-    address: String!
+    phoneNumber: String
+    address: String
     petsCount: Int!
-    petsunt: Int!
+    pets: [Dog]
   }
 
   type Auth {
@@ -56,16 +56,16 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     email: String!
-    phoneNumber: String!
-    address: String!
+    phoneNumber: String
+    address: String
   }
 
   
   input VeterinarianObj {
     name: String!
     email: String!
-    phoneNumber: String!
-    address: String!
+    phoneNumber: String
+    address: String
   }
 
   type Dog {
@@ -93,7 +93,7 @@ const typeDefs = gql`
 
   type Query {
     services: [Service]
-    providers: [Provider]
+    providers(service: Int): [Provider]
     provider(providerId: ID!): Provider
     me: User
   }
