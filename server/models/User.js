@@ -1,6 +1,9 @@
-const mongoose =require ('mongoose');
+const mongoose = require('mongoose');
 const { Schema } = require("mongoose");
 const bcrypt = require("bcrypt");
+
+const { DogSchema } = require('./Dog');
+const { AppointmentSchema } = require('./Appointment');
 
 const userSchema = new Schema(
   {
@@ -31,22 +34,8 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    numberPets: {
-      type: Number,
-      required: true,
-      trim: true,
-    },
-    petsName: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    // services: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Service",
-    //   },
-    // ],
+    pets: [DogSchema],
+    appointments: [AppointmentSchema]
   },
   {
     toJSON: {
@@ -70,11 +59,11 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
+// when we query a user, we'll also get another field called `petsCount` with the number of saved pets we have
+userSchema.virtual('petsCount').get(function () {
+  return this.pets.length;
+});
 
-//may use to querry services the user uses
-// userSchema.virtual('bookCount').get(function () {
-//   return this.savedBooks.length;
-// });
 
 const User = mongoose.model("User", userSchema);
 
