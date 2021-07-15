@@ -2,13 +2,24 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+  scalar Date
+
   type Service {
     name: String!
   }
 
   type Appointment {
-    userId: ID!,
-    dogId: ID!,
+    _id: ID!
+    userId: ID!
+    dogId: ID!
+    providerId: ID!
+    from: Date!
+    to: Date!
+  }
+
+  input AppointmentObj {
+    dogId: ID!
+    providerId: ID!
     from: Date!
     to: Date!
   }
@@ -23,6 +34,7 @@ const typeDefs = gql`
     service: Service
     appointments: [Appointment]
   }
+
 
   type User {
     _id: ID!
@@ -48,6 +60,14 @@ const typeDefs = gql`
     address: String!
   }
 
+  
+  input VeterinarianObj {
+    name: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+  }
+
   type Dog {
     _id: ID!
     name: String!
@@ -55,7 +75,7 @@ const typeDefs = gql`
     age: Int!
     weight: Int!
     gender: String!
-    veterinerian: Veterinarian
+    veterinarian: Veterinarian
     medicated: Boolean!
     medications: String
   }
@@ -66,7 +86,7 @@ const typeDefs = gql`
     age: Int!
     weight: Int!
     gender: String!
-    veterinerian: Veterinarian
+    veterinarian: VeterinarianObj
     medicated: Boolean!
     medications: String
   }
@@ -82,7 +102,7 @@ const typeDefs = gql`
     createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
     addDog(dog: DogObj!): User
     login(email: String!, password: String!): Auth
-    saveAppointment(appointment: Appointment!): Appointment
+    saveAppointment(appointment: AppointmentObj!): Appointment
   }
   
 `;
