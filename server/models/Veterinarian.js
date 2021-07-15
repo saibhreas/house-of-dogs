@@ -14,12 +14,9 @@ const VeterinarianSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
-    minlength: 10,
   },
   address: {
     type: String,
-    required: true,
   },
 });
 

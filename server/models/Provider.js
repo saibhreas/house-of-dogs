@@ -17,8 +17,6 @@ const providerSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
-    minlength: 10,
   },
   address: {
     type: String,
