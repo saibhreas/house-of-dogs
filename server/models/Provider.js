@@ -7,7 +7,6 @@ const providerSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   email: {
@@ -18,13 +17,10 @@ const providerSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
-    minlength: 10,
   },
   address: {
     type: String,
     required: true,
-    unique: true,
   },
   about: {
     type: String,

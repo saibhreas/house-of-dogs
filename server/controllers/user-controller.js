@@ -32,14 +32,13 @@ module.exports = {
     const token = signToken(user);
     return { token, user };
   },
-  
-  // save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
-  // user comes from `req.user` created in the auth middleware function
-  async saveBook({ book }, context) {
+
+  // save a dog to a user's `pets` field by adding it to the set (to prevent duplicates)
+  async addDog({ dog }, context) {
     if (context.user) {
       const updatedUser = await User.findOneAndUpdate(
         { _id: context.user._id },
-        { $addToSet: { savedBooks: book } },
+        { $addToSet: { pets: dog } },
         { new: true, runValidators: true }
       );
       return updatedUser;
