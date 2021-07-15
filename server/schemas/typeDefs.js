@@ -35,6 +35,11 @@ const typeDefs = gql`
     petsunt: Int!
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Veterinarian {
     _id: ID!
     name: String!
@@ -47,8 +52,19 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     breed: String!
-    age: Number!
-    weight: Number!
+    age: Int!
+    weight: Int!
+    gender: String!
+    veterinerian: Veterinarian
+    medicated: Boolean!
+    medications: String
+  }
+
+  input DogObj {
+    name: String!
+    breed: String!
+    age: Int!
+    weight: Int!
     gender: String!
     veterinerian: Veterinarian
     medicated: Boolean!
@@ -64,6 +80,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
+    addDog(dog: DogObj!): User
     login(email: String!, password: String!): Auth
     saveAppointment(appointment: Appointment!): Appointment
   }
