@@ -6,8 +6,8 @@ const { AuthenticationError } = require('apollo-server-express');
 
 module.exports = {
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-  async createUser({ username, email, password }) {
-    const user = await User.create({ username, email, password });
+  async createUser({ name, username, email, password, phoneNumber, address }) {
+    const user = await User.create({ name, username, email, password, phoneNumber, address });
 
     if (!user) {
       throw new AuthenticationError('Something is wrong!');
