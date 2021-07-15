@@ -26,7 +26,7 @@ const providerSchema = new Schema({
     type: String,
     trim: true,
   },
-  serviceId: {
+  service: {
     type: Number,
     ref: 'Service'
   },
