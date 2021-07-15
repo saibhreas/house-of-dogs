@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Schema } = 'mongoose';
+const { Schema } = mongoose;
 
 const VeterinarianSchema = new Schema({
   name: {
@@ -20,6 +20,6 @@ const VeterinarianSchema = new Schema({
   },
 });
 
-const Veterinarian = mongoose.model('Veterinarian', veterinarianSchema);
+const Veterinarian = mongoose.model('Veterinarian', VeterinarianSchema);
 
 module.exports = { VeterinarianSchema, Veterinarian };
