@@ -1,9 +1,10 @@
-const mongoose =require ('mongoose');
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const bcrypt = require("bcrypt");
+
+const { AppointmentSchema } = require('./Appointment');
 
 const providerSchema = new Schema({
-   name: {
+  name: {
     type: String,
     required: true,
     unique: true,
@@ -15,11 +16,6 @@ const providerSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
-  password: {
-    type: String,
-    required: true,
-    minlength: 2,
-  },
   phoneNumber: {
     type: String,
     required: true,
@@ -30,38 +26,23 @@ const providerSchema = new Schema({
     required: true,
     unique: true,
   },
-  veterinarian: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Veterinarian",
-    },
-  ],
   about: {
     type: String,
     trim: true,
   },
-},
-{
-  toJSON: {
-    virtuals: true,
+  serviceId: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Service'
   },
-}
+  appointments: [AppointmentSchema]
+},
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
 );
 
-providerSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
-
-  next();
-});
-
-// compare the incoming password with the hashed password
-providerSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-};
- 
 const Provider = mongoose.model("Provider", providerSchema);
 
 module.exports = Provider;
