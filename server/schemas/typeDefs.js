@@ -35,34 +35,54 @@ const typeDefs = gql`
     petsunt: Int!
   }
 
-  type Dog {
-    _id: ID!
-    name: String!
-    breed: String!
-    age: Number!
-    weight: Number!
-    gender: String!
-    veterinaryContact: String!
-    medicated:Boolean!
-    medications: String
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Veterinarian {
     _id: ID!
-    name: String
-    email: [String]!
-    phoneNumber:String !
-    address:String!
+    name: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+  }
+
+  type Dog {
+    _id: ID!
+    name: String!
+    breed: String!
+    age: Int!
+    weight: Int!
+    gender: String!
+    veterinerian: Veterinarian
+    medicated: Boolean!
+    medications: String
+  }
+
+  input DogObj {
+    name: String!
+    breed: String!
+    age: Int!
+    weight: Int!
+    gender: String!
+    veterinerian: Veterinarian
+    medicated: Boolean!
+    medications: String
   }
 
   type Query {
-    users: [User]
-    user(UserId: ID!): User
+    services: [Service]
+    providers: [Provider]
+    provider(providerId: ID!): Provider
+    me: User
   }
 
   type Mutation {
-    createUser(username: String!, email: String!, password: String!): Auth
+    createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
+    addDog(dog: DogObj!): User
     login(email: String!, password: String!): Auth
+    saveAppointment(appointment: Appointment!): Appointment
   }
   
 `;
