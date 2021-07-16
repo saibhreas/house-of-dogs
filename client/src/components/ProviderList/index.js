@@ -48,14 +48,10 @@ function ProviderList() {
       <h2>Dog Providers:</h2>
       {state.providers.length ? (
         <div className="flex-row">
-          {filterProviders().map((product) => (
+          {filterProviders().map((provider) => (
             <ProviderItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
+              key={provider._id}
+              item={provider}
             />
           ))}
         </div>
