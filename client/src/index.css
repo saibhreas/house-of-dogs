@@ -197,6 +197,18 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
+.p-0 {
+  padding: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .card {
   width: 25%;
   text-align: center;
@@ -228,4 +240,15 @@ input:focus {
 
 .veterinarian-form {
   width: 40%;
+}
+
+.font-sm-1 {
+  font-size: 11px;
+}
+
+.pet-container {
+  width: 200px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 20px 0 20px 20px;
 }
