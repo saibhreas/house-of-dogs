@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-<<<<<<< HEAD
-=======
 
 const { AppointmentSchema } = require('./Appointment');
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 
 const providerSchema = new Schema({
   name: {
@@ -27,11 +24,6 @@ const providerSchema = new Schema({
     required: true,
    
   },
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
   about: {
     type: String,
     trim: true,
@@ -40,16 +32,6 @@ const providerSchema = new Schema({
     type: mongoose.Types.ObjectId,
     ref: 'Service'
   },
-<<<<<<< HEAD
-}
-);
-
-
-
-
- 
-const Provider = mongoose.model('Provider', providerSchema);
-=======
   appointments: [AppointmentSchema]
 },
   {
@@ -60,6 +42,5 @@ const Provider = mongoose.model('Provider', providerSchema);
 );
 
 const Provider = mongoose.model("Provider", providerSchema);
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 
 module.exports = Provider;

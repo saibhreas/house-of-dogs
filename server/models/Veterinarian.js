@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
-<<<<<<< HEAD
 const { Schema } = mongoose;
-=======
-const { Schema } = 'mongoose';
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 
 const VeterinarianSchema = new Schema({
   name: {
@@ -24,16 +20,8 @@ const VeterinarianSchema = new Schema({
   address: {
     type: String,
     required: true,
-<<<<<<< HEAD
-    
-    
-  },
- 
-  
-=======
     unique: true
   },
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 });
 
 const Veterinarian = mongoose.model('Veterinarian', veterinarianSchema);

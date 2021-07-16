@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-const mongoose =require ('mongoose');
-const { Schema } = mongoose;
-=======
 const mongoose = require('mongoose');
-const { Schema } = require("mongoose");
+const { Schema } =  mongoose;
 const bcrypt = require("bcrypt");
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 
 const { DogSchema } = require('./Dog');
 const { AppointmentSchema } = require('./Appointment');
-
+//TODO: model needs to be adjusted to the form.  WE knwo form works with the rest of the app, so adjust the model.
+//Review front and make models, typedefs and resolver 
 const userSchema = new Schema(
   {
     name: {
@@ -29,28 +25,16 @@ const userSchema = new Schema(
     },
     phoneNumber: {
       type: String,
-      required: true,
       minlength: 10,
+      allowNull: true
     },
     address: {
       type: String,
-      required: true,
+      allowNull: true
       
     },
-<<<<<<< HEAD
-    numberPets: {
-      type: Number,
-      trim: true,
-    },
-    petsName: {
-      type: String,
-      trim: true,
-    },
-   
-=======
     pets: [DogSchema],
     appointments: [AppointmentSchema]
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
   },
   {
     toJSON: {
@@ -59,8 +43,6 @@ const userSchema = new Schema(
   }
 );
 
-<<<<<<< HEAD
-=======
 // set up pre-save middleware to create password
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
@@ -80,7 +62,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 userSchema.virtual('petsCount').get(function () {
   return this.pets.length;
 });
->>>>>>> 31229957a31923716d15e4fafc6a2a95a23fe3bd
 
 
 const User = mongoose.model("User", userSchema);
