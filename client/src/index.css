@@ -72,7 +72,6 @@ p {
 a {
   color: var(--tertiary);
   text-decoration: none;
-  font-weight: bold;
 }
 
 a:hover {
@@ -120,13 +119,17 @@ form {
   width: 40%;
 }
 
-input {
+input, select {
   font-size: 1rem;
   padding: 0.25rem;
   border: 1px solid var(--dark);
   outline: none;
   border-radius: 3px;
   transition: box-shadow 0.2s;
+}
+
+select {
+  width: 150px;
 }
 
 input:focus {
@@ -207,4 +210,22 @@ input:focus {
   .card {
     width: 100%;
   }
+}
+
+.dog-signup img {
+  width: 140px;
+}
+
+.dog-signup-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dog-form {
+  width: 40%;
+}
+
+.veterinarian-form {
+  width: 40%;
 }

@@ -87,7 +87,6 @@ const typeDefs = gql`
     weight: Int!
     gender: String!
     veterinarian: VeterinarianObj
-    medicated: Boolean!
     medications: String
   }
 
