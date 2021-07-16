@@ -20,37 +20,32 @@ function getRandomPic() {
   return listImages[getRandomInt(3)];
 }
 
-function ProviderItem(item) {
+function ProviderItem(provider) {
   const [state, dispatch] = useStoreContext();
 
-  const {
-    name,
-    _id,
-    price,
-    about
-  } = item;
+  const { item } = provider;
+  const { _id, name, email, phoneNumber } = item;
 
-  const { cart } = state
 
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === _id)
-    if (itemInCart) {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: _id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-      });
-      idbPromise('cart', 'put', {
-        ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-      });
-    } else {
-      dispatch({
-        type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 }
-      });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
-    }
+    // const itemInCart = cart.find((cartItem) => cartItem._id === _id)
+    // if (itemInCart) {
+    //   dispatch({
+    //     type: UPDATE_CART_QUANTITY,
+    //     _id: _id,
+    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+    //   });
+    //   idbPromise('cart', 'put', {
+    //     ...itemInCart,
+    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+    //   });
+    // } else {
+    //   dispatch({
+    //     type: ADD_TO_CART,
+    //     product: { ...item, purchaseQuantity: 1 }
+    //   });
+    //   idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+    // }
   }
 
 
@@ -66,8 +61,8 @@ function ProviderItem(item) {
         <p>{name}</p>
       </Link>
       <div>
-        {/* <div>{about}</div> */}
-        <span>${price}</span>
+        <p className="m-0 font-sm-1">{email}</p>
+        <p>{phoneNumber}</p>
       </div>
       <button className="book-provider" onClick={addToCart}>Book Provider</button>
     </div>

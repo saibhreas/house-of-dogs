@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const AppointmentSchema = new Schema(
     {
-        user: { type: mongoose.Types.ObjectId, ref: 'User' },
-        provider: { type: mongoose.Types.ObjectId, ref: 'Provider' },
-        dog: mongoose.Types.ObjectId,
+        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        provider: { type: mongoose.Schema.Types.ObjectId, ref: 'Provider' },
+        dog: mongoose.Schema.Types.ObjectId,
         from: Date,
         to: Date
     },

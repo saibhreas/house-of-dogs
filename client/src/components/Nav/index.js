@@ -26,9 +26,9 @@ function Nav() {
           </ul>
           <ul className="flex-row right-menu">
             <li className="mx-1">
-              <a className="logged-user" href="/" onClick={() => { }}>
+              <Link to="/profile">
                 {user?.data?.name}
-              </a>
+              </Link>
             </li>
             <li className="mx-1">
               {/* this is not using the Link component to logout or user and then refresh the application to the start */}
