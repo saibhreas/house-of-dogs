@@ -15,33 +15,66 @@ function Profile() {
   return (
     <>
       <div className="container my-1">
-        <Link to="/">← Back to Providers</Link>
+        <Link to="/">← Back to Homepage</Link>
 
         {user ? (
           <>
-            <h2>
-              Order History for {user.firstName} {user.lastName}
-            </h2>
-            {user.appointments.map((order) => (
-              <div key={order._id} className="my-2">
+            <br />
+            <br />
+            <h2>Profile Info:</h2>
+            <div>
+              <p className="m-0">
+                <span className="bold">Full Name: </span>
+                {user.name}
+              </p>
+              <p className="m-0">
+                <span className="bold">Email: </span>
+                {user.email}
+              </p>
+              <p className="m-0">
+                <span className="bold">Address: </span>
+                {user.address}
+              </p>
+              <p className="m-0">
+                <span className="bold">Phone Number:</span>
+                {user.phoneNumber}
+              </p>
+            </div>
+
+            <div className="service-container">
+              <h2>My pets:</h2>
+              <br />
+              {user.pets?.map((dog) => (
+                <div className="pet-container">
+                  <p className="m-0">🐕 {dog.name}</p>
+                  <p className="m-0 font-sm-1">Breed: {dog.breed}</p>
+                  <p className="m-0 font-sm-1">Age: {dog.age ? dog.age + ' years old' : 'No age specified'} </p>
+                  <p className="m-0 font-sm-1">Weight: {dog.weight ? dog.weight + ' pounds' : 'No weight specified'} </p>
+                  <p className="m-0 font-sm-1">Medication Notes: {dog.medications}</p>
+                  <p className="m-0 font-sm-1">Dog's Vet: {dog.veterinarian.name}</p>
+                </div>
+              ))}
+            </div>
+
+            <h2>Appointments History:</h2>
+            {user.appointments && user.appointments.length > 0 ? user.appointments?.map((ap) => (
+              <div key={ap._id} className="my-2">
                 <h3>
-                  {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
+                  {new Date(parseInt(ap.from)).toLocaleDateString()} -
+                  {new Date(parseInt(ap.to)).toLocaleDateString()}
                 </h3>
                 <div className="flex-row">
-                  {order.providers.map(({ _id, image, name, price }, index) => (
-                    <div key={index} className="card px-1 py-1">
-                      <Link to={`/providers/${_id}`}>
-                        <img alt={name} src={`/images/${image}`} />
-                        <p>{name}</p>
-                      </Link>
-                      <div>
-                        <span>${price}</span>
-                      </div>
+                  <div className="card px-1 py-1">
+                    <Link to={`/providers/${ap.provider._id}`}>
+                      <p>{ap.dog.name}</p>
+                    </Link>
+                    <div>
+                      <span>${ap.provider.name}</span>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
-            ))}
+            )) : 'No appointments so far'}
           </>
         ) : null}
       </div>

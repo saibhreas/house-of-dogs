@@ -71,6 +71,22 @@ export const QUERY_ME = gql`
       pets {
         _id
         name
+        breed
+        age
+        weight
+        veterinarian {
+          name
+        }
+      }
+      appointments {
+        dog {
+          _id
+          name
+        }
+        provider {
+          _id
+          name
+        }
       }
     }
   }
