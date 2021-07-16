@@ -19,8 +19,9 @@ const typeDefs = gql`
   }
 
   input AppointmentObj {
-    dogId: ID!
-    providerId: ID!
+    user: ID!
+    dog: ID!
+    provider: ID!
     from: Date!
     to: Date!
   }
@@ -61,7 +62,6 @@ const typeDefs = gql`
     address: String
   }
 
-  
   input VeterinarianObj {
     name: String!
     email: String!
@@ -102,7 +102,7 @@ const typeDefs = gql`
     createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
     addDog(dog: DogObj!): User
     login(email: String!, password: String!): Auth
-    saveAppointment(appointment: AppointmentObj!): Appointment
+    makeAppointment(appointment: AppointmentObj!): ID
   }
   
 `;
