@@ -1,33 +1,25 @@
-const mongoose =require ('mongoose');
-const { Schema } = 'mongoose';
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const veterinarianSchema = new Schema({
+const VeterinarianSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
-  email : {
+  email: {
     type: String,
     required: true,
-    unique: true,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
-  phoneNumber :{
+  phoneNumber: {
     type: String,
-    required: true,
-    minlength: 10,
   },
-  address : {
+  address: {
     type: String,
-    required: true,
-    unique: true
-    
   },
-  
 });
 
-const Veterinarian = mongoose.model('Veterinarian', veterinarianSchema);
+const Veterinarian = mongoose.model('Veterinarian', VeterinarianSchema);
 
-module.exports = Veterinarian;
+module.exports = { VeterinarianSchema, Veterinarian };

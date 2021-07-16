@@ -1,19 +1,17 @@
-const mongoose =require ('mongoose');
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const { VeterinarianSchema } = require('./Veterinarian');
 
-const dogSchema =  new Schema ({
-   
+const DogSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   breed: {
     type: String,
     required: true,
     trim: true,
-    //pick closest match
   },
   age: {
     type: Number,
@@ -22,31 +20,22 @@ const dogSchema =  new Schema ({
   },
   weight: {
     type: Number,
-    required: true,
-    trim: true,
   },
   gender: {
     type: String,
-    required: true,
-    trim: true,
-  },
-  veterinaryContact: {
-    type: String,
-    required: true,
     trim: true,
   },
   medicated: {
     type: Boolean,
-    required: true,
-    trim: true,
+    default: false
   },
   medications: {
     type: String,
     trim: true,
   },
-
+  veterinarian: VeterinarianSchema
 });
 
-const Dog = mongoose.model('Dog', dogSchema);
+const Dog = mongoose.model('Dog', DogSchema);
 
-module.exports = Dog;
+module.exports = { DogSchema, Dog };

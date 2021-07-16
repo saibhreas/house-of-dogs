@@ -1,61 +1,108 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
+  scalar Date
+
+  type Service {
+    _id: Int!
+    name: String!
+  }
+
+  type Appointment {
+    _id: ID!
+    userId: ID!
+    dogId: ID!
+    providerId: ID!
+    from: Date!
+    to: Date!
+  }
+
+  input AppointmentObj {
+    dogId: ID!
+    providerId: ID!
+    from: Date!
+    to: Date!
+  }
+
+  type Provider {
+    _id: ID!
+    name: String!
+    email: String!
+    phoneNumber: String
+    address: String
+    about: String!
+    service: Service
+    appointments: [Appointment]
+  }
+
+
   type User {
     _id: ID!
     name: String!
-    email:[String]!
-    password:String!
-    phoneNumber: String!
-    address: String!
-    numberPets: Int!
-    petsName: String!
+    email: String!
+    phoneNumber: String
+    address: String
+    petsCount: Int!
+    pets: [Dog]
+  }
 
+  type Auth {
+    token: ID!
+    user: User
   }
-  type Provider {
+
+  type Veterinarian {
     _id: ID!
-    name: String
-    email: [String]!
-    password:String !
-    phoneNumber:String !
-    address:String!
-    veterinarian:[Veterinarian]
-    about:String
+    name: String!
+    email: String!
+    phoneNumber: String
+    address: String
   }
+
+  
+  input VeterinarianObj {
+    name: String!
+    email: String!
+    phoneNumber: String
+    address: String
+  }
+
   type Dog {
     _id: ID!
     name: String!
     breed: String!
-    age: Number!
-    weight: Number!
+    age: Int!
+    weight: Int!
     gender: String!
-    veterinaryContact: String!//*comes from form
-    medicated:Boolean!
+    veterinarian: Veterinarian
+    medicated: Boolean!
     medications: String
-    
   }
-  type Veterinarian {
-    _id: ID!
-    name: String
-    email: [String]!
-    phoneNumber:String !
-    address:String!
-  }
-  type Service {
-  dogWalking:Boolean!
-  petSitting:Boolean!
-  petGrooming:Boolean!
-  overnightSitting:Boolean!
-  doggyDaycare:Boolean!
-  fullKennel:Boolean!
+
+  input DogObj {
+    name: String!
+    breed: String!
+    age: Int!
+    weight: Int!
+    gender: String!
+    veterinarian: VeterinarianObj
+    medicated: Boolean!
+    medications: String
   }
 
   type Query {
-    users: [User]
-    user(UserId: ID!): User
+    services: [Service]
+    providers(service: Int): [Provider]
+    provider(providerId: ID!): Provider
+    me: User
   }
-  type Mutation{
-    addUser(name: String!): User
+
+  type Mutation {
+    createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
+    addDog(dog: DogObj!): User
+    login(email: String!, password: String!): Auth
+    saveAppointment(appointment: AppointmentObj!): Appointment
   }
   
 `;
