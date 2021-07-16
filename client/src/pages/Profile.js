@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
-function OrderHistory() {
+function Profile() {
   const { data } = useQuery(QUERY_ME);
   let user;
 
@@ -22,7 +22,7 @@ function OrderHistory() {
             <h2>
               Order History for {user.firstName} {user.lastName}
             </h2>
-            {user.orders.map((order) => (
+            {user.appointments.map((order) => (
               <div key={order._id} className="my-2">
                 <h3>
                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
@@ -49,4 +49,4 @@ function OrderHistory() {
   );
 }
 
-export default OrderHistory;
+export default Profile;
