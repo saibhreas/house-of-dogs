@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { CREATE_USER } from '../utils/mutations';
 
-function Signup(props) {
+function MakeAppointment(props) {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
@@ -101,4 +101,4 @@ function Signup(props) {
   );
 }
 
-export default Signup;
+export default MakeAppointment;
