@@ -10,3 +10,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.logged-user {
+    text-decoration: underline;
+}
