@@ -4,6 +4,14 @@
 
 ###license ![github license](https://img.shields.io/badge/license-Apache-brightgreen.svg)
 
+####  Deployments
+
+  * https://house-of-dogs.herokuapp.com/
+  * https://github.com/saibhreas/house-of-dogs
+
+![Screen Capture](./client/src/assets/HOD_running.png)
+
+C:\Users\kern\Desktop\house-of-dogs\client\src\assets\HOD_running.png
 ### Brief Intro
 **House of Dogs** is a SAAS product where pet owners can review service providers in their area and schedule for services.
 services range from:
