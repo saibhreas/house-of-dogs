@@ -8,6 +8,7 @@ import image1 from '../../assets/dog-service-1.png';
 import image2 from '../../assets/dog-service-2.png';
 import image3 from '../../assets/dog-service-3.png';
 import image4 from '../../assets/dog-service-4.png';
+import './index.css';
 
 const listImages = [ image1, image2, image3, image4 ];
 
@@ -23,11 +24,10 @@ function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
-    image,
     name,
     _id,
     price,
-    quantity
+    about
   } = item;
 
   const { cart } = state
@@ -59,16 +59,17 @@ function ProductItem(item) {
     <div className="card px-1 py-1">
       <Link to={`/providers/${_id}`}>
         <img
+        className="provider-image"
           src={getRandomPic()}
           alt={name}
         />
         <p>{name}</p>
       </Link>
       <div>
-        <div>{quantity} {pluralize("item", quantity)} in stock</div>
+        {/* <div>{about}</div> */}
         <span>${price}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
+      <button className="book-provider" onClick={addToCart}>Book Provider</button>
     </div>
   );
 }

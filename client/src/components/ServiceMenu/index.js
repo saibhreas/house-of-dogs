@@ -47,6 +47,7 @@ function ServiceMenu() {
       <h2>Services offered:</h2>
       {services.map((item) => (
         <button
+          className="mx-1"
           key={item._id}
           onClick={() => {
             handleClick(item._id);
