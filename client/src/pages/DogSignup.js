@@ -40,6 +40,7 @@ function DogSignup(props) {
       }
     });
     // TODO - Do smth when dog is signed up 
+    window.location.assign('/profile');
   };
 
   const handleChange = (event) => {

@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { CREATE_USER } from '../utils/mutations';
 
-function Signup(props) {
+function MakeAppointment(props) {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
@@ -35,7 +35,6 @@ function Signup(props) {
       ...formState,
       [name]: value,
     });
-    console.log(formState.email);
   };
 
   return (
@@ -43,7 +42,7 @@ function Signup(props) {
       <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
-      <form >
+      <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="name">Full Name:</label>
           <input
@@ -95,13 +94,11 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit" onClick= {
-            handleFormSubmit}
-            >Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
   );
 }
 
-export default Signup;
+export default MakeAppointment;

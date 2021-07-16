@@ -30,6 +30,7 @@ const userSchema = new Schema(
       type: String,
     },
     pets: [DogSchema],
+    // appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Appointment' }]
     appointments: [AppointmentSchema]
   },
   {

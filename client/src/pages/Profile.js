@@ -36,16 +36,15 @@ function Profile() {
                 {user.address}
               </p>
               <p className="m-0">
-                <span className="bold">Phone Number:</span>
+                <span className="bold">Phone Number: </span>
                 {user.phoneNumber}
               </p>
             </div>
 
             <div className="service-container">
               <h2>My pets:</h2>
-              <br />
-              {user.pets?.map((dog) => (
-                <div className="pet-container">
+              {user.pets.length > 0 ? user.pets?.map((dog) => (
+                <div className="pet-container" key={dog._id}>
                   <p className="m-0">🐕 {dog.name}</p>
                   <p className="m-0 font-sm-1">Breed: {dog.breed}</p>
                   <p className="m-0 font-sm-1">Age: {dog.age ? dog.age + ' years old' : 'No age specified'} </p>
@@ -53,11 +52,11 @@ function Profile() {
                   <p className="m-0 font-sm-1">Medication Notes: {dog.medications}</p>
                   <p className="m-0 font-sm-1">Dog's Vet: {dog.veterinarian.name}</p>
                 </div>
-              ))}
+              )) : 'No pets registered. Click "Register a Dog" link'}
             </div>
 
             <h2>Appointments History:</h2>
-            {user.appointments && user.appointments.length > 0 ? user.appointments?.map((ap) => (
+            {user.appointments.length > 0 ? user.appointments.map((ap) => (
               <div key={ap._id} className="my-2">
                 <h3>
                   {new Date(parseInt(ap.from)).toLocaleDateString()} -

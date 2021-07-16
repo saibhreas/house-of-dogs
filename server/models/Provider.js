@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const { AppointmentSchema } = require('./Appointment');
 
 const providerSchema = new Schema({
   name: {
@@ -30,7 +29,7 @@ const providerSchema = new Schema({
     type: Number,
     ref: 'Service'
   },
-  appointments: [AppointmentSchema]
+  appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Appointment' }]
 },
   {
     toJSON: {

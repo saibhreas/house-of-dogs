@@ -1,5 +1,6 @@
 // import user model
-const { User } = require('../models');
+const { User, Provider } = require('../models');
+const { Appointment } = require('../models/Appointment');
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
@@ -42,6 +43,27 @@ module.exports = {
         { new: true, runValidators: true }
       );
       return updatedUser;
+    }
+    throw new AuthenticationError('You need to be logged in!');
+  },
+
+  // creates an appointment between user (dog) and provider for a given date
+  async makeAppointment({ appointment }, context) {
+    if (context.user) {
+      console.log('appointment: ', appointment);
+      const newAppointment = await Appointment.create(appointment);
+      const provider = await Provider.findOne({ _id: appointment.provider });
+      await Provider.findOneAndUpdate(
+        { _id: appointment.provider },
+        { $addToSet: { appointments: newAppointment } },
+        { new: true, runValidators: true }
+      );
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { appointments: { ...newAppointment, provider } } },
+        { new: true, runValidators: true }
+      );
+      return newAppointment._id;
     }
     throw new AuthenticationError('You need to be logged in!');
   },
