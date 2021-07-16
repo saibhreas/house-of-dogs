@@ -11,9 +11,9 @@ const typeDefs = gql`
 
   type Appointment {
     _id: ID!
-    userId: ID!
-    dogId: ID!
-    providerId: ID!
+    user: User!
+    dog: Dog!
+    provider: Provider!
     from: Date!
     to: Date!
   }
@@ -45,6 +45,7 @@ const typeDefs = gql`
     address: String
     petsCount: Int!
     pets: [Dog]
+    appointments: [Appointment]
   }
 
   type Auth {
@@ -99,7 +100,6 @@ const typeDefs = gql`
     weight: Int!
     gender: String!
     veterinarian: VeterinarianObj
-    medicated: Boolean!
     medications: String
 >>>>>>> 2239cf1f76921dfb098f5d6d99bb5b53fa96860b
   }

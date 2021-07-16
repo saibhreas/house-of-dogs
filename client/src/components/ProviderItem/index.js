@@ -10,7 +10,7 @@ import image3 from '../../assets/dog-service-3.png';
 import image4 from '../../assets/dog-service-4.png';
 import './index.css';
 
-const listImages = [ image1, image2, image3, image4 ];
+const listImages = [image1, image2, image3, image4];
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -20,7 +20,7 @@ function getRandomPic() {
   return listImages[getRandomInt(3)];
 }
 
-function ProductItem(item) {
+function ProviderItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
@@ -59,7 +59,7 @@ function ProductItem(item) {
     <div className="card px-1 py-1">
       <Link to={`/providers/${_id}`}>
         <img
-        className="provider-image"
+          className="provider-image"
           src={getRandomPic()}
           alt={name}
         />
@@ -74,4 +74,4 @@ function ProductItem(item) {
   );
 }
 
-export default ProductItem;
+export default ProviderItem;
