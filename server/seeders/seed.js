@@ -1,9 +1,17 @@
 const db = require('../config/connection');
 
+<<<<<<< HEAD
+const DogSeeds = require('./DogSeeds.json');
+const ProviderSeeds = require('./ProviderSeeds.json');
+const UserSeeds = require('./UserSeeds.json');
+const VeterinarianSeeds = require('./VeterinarianSeeds.json');
+const ServiceSeeds = require('./ServiceSeeds.json');
+=======
 const DogSeeds = require('./DogSeed.json');
 const ProviderSeeds = require('./ProviderSeed.json');
 const UserSeeds = require('./UserSeed.json');
 const ServiceSeeds = require('./ServiceSeed.json');
+>>>>>>> 2239cf1f76921dfb098f5d6d99bb5b53fa96860b
 
 const { User, Provider, Service } = require('../models');
 const { Dog } = require('../models/Dog');

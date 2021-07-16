@@ -35,6 +35,7 @@ function Signup(props) {
       ...formState,
       [name]: value,
     });
+    console.log(formState.email);
   };
 
   return (
@@ -42,7 +43,7 @@ function Signup(props) {
       <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form >
         <div className="flex-row space-between my-2">
           <label htmlFor="firstName">Full Name:</label>
           <input
@@ -94,7 +95,9 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit" onClick= {
+            handleFormSubmit}
+            >Submit</button>
         </div>
       </form>
     </div>

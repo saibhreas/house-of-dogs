@@ -75,11 +75,23 @@ const typeDefs = gql`
     age: Int!
     weight: Int!
     gender: String!
+<<<<<<< HEAD
+    veterinaryContact: String!
+=======
     veterinarian: Veterinarian
+>>>>>>> 2239cf1f76921dfb098f5d6d99bb5b53fa96860b
     medicated: Boolean!
     medications: String
   }
 
+<<<<<<< HEAD
+  type Veterinarian {
+    _id: ID!
+    name: String
+    email: String!
+    phoneNumber:String !
+    address:String!
+=======
   input DogObj {
     name: String!
     breed: String!
@@ -89,6 +101,7 @@ const typeDefs = gql`
     veterinarian: VeterinarianObj
     medicated: Boolean!
     medications: String
+>>>>>>> 2239cf1f76921dfb098f5d6d99bb5b53fa96860b
   }
 
   type Query {

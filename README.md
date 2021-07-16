@@ -30,9 +30,11 @@ Service providers get access to pet owners, use of cloud database for appointmen
   * [Authors](###Authors)
   * [Licence](##Licence)
  
-### Description
+## Description: Full Stack MERN with Apollo GraphQL server
 
-#### *App is Full Stack  Mongo Express...*
+### *App is Full Stack  Mongo Express...*
+
+
 
 *Frontend/Client* 
 
@@ -42,8 +44,6 @@ Service providers get access to pet owners, use of cloud database for appointmen
 
 *Server*
   * is Apollo-express/graphql  utilizing middleware for authentication, web tokens, and Stripe?  
-
-### Instalation and integeration:
 
   * 3 package.json sets of dependencies
       * Main :
@@ -82,4 +82,4 @@ Service providers get access to pet owners, use of cloud database for appointmen
 
   * Alex
   * Chris :P
-  * Siobhan: **Dolphins**, gotta love em!. 
+  * Siobhan: **Dolphins**, gotta love em!. yeah dolphins!  a yup!

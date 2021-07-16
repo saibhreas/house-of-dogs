@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
-const { Schema } =  mongoose;
+const { Schema } = mongoose;
+
+
 const bcrypt = require("bcrypt");
 
-const { DogSchema } = require('./Dog');
-const { AppointmentSchema } = require('./Appointment');
-//TODO: model needs to be adjusted to the form.  WE knwo form works with the rest of the app, so adjust the model.
-//Review front and make models, typedefs and resolver 
 const userSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
+      unique: true,
       trim: true,
     },
     email: {
       type: String,
       required: true,
+      unique: true,
       match: [/.+@.+\..+/, "Must use a valid email address"],
     },
     password: {
@@ -25,12 +25,30 @@ const userSchema = new Schema(
     },
     phoneNumber: {
       type: String,
+      required: true,
+      minlength: 10,
     },
     address: {
       type: String,
+      required: true,
+      unique: true,
     },
-    pets: [DogSchema],
-    appointments: [AppointmentSchema]
+    numberPets: {
+      type: Number,
+      required: true,
+      trim: true,
+    },
+    petsName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    // services: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Service",
+    //   },
+    // ],
   },
   {
     toJSON: {
@@ -54,11 +72,11 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `petsCount` with the number of saved pets we have
-userSchema.virtual('petsCount').get(function () {
-  return this.pets.length;
-});
 
+//may use to querry services the user uses
+// userSchema.virtual('bookCount').get(function () {
+//   return this.savedBooks.length;
+// });
 
 const User = mongoose.model("User", userSchema);
 

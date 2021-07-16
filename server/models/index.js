@@ -1,9 +1,12 @@
 const User = require('./User');
-const Provider = require('./Provider');
 const Dog = require('./Dog');
 const Veterinarian = require('./Veterinarian');
 const Service = require('./Service');
+const Provider = require('./Provider');
 
-module.exports = { User, Provider, Dog, Veterinarian, Service };
 
 
+
+const { Schema, model } = require('mongoose');
+
+module.exports = { User, Dog , Veterinarian, Service, Provider };
