@@ -14,19 +14,19 @@ function Nav() {
         <div className="menu-nav">
           <ul className="flex-row left-menu">
             <li className="mx-2">
-              <Link to="/orderHistory">
-                My Appointments
+              <Link to="/profile">
+                My Profile
               </Link>
             </li>
             <li className="mx-2">
-              <Link to="/orderHistory">
+              <Link to="/dog-signup">
                 Register a Dog
               </Link>
             </li>
           </ul>
           <ul className="flex-row right-menu">
             <li className="mx-1">
-              <a href="/" onClick={() => {}}>
+              <a className="logged-user" href="/" onClick={() => { }}>
                 {user?.data?.name}
               </a>
             </li>
