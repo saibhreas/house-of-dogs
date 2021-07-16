@@ -1,20 +1,26 @@
 [
     {
+        "_id": 1,
         "name": "Dog Walking"
     },
     {
+        "_id": 2,
         "name": "Pet Sitting"
     },
     {
+        "_id": 3,
         "name": "Pet Grooming"
     },
     {
+        "_id": 4,
         "name": "Overnight Sitting"
     },
     {
+        "_id": 5,
         "name": "Doggy Daycare"
     },
     {
+        "_id": 6,
         "name": "Full Kennel"
     }
 ]

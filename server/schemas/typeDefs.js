@@ -2,13 +2,25 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
+  scalar Date
+
   type Service {
+    _id: Int!
     name: String!
   }
 
   type Appointment {
-    userId: ID!,
-    dogId: ID!,
+    _id: ID!
+    userId: ID!
+    dogId: ID!
+    providerId: ID!
+    from: Date!
+    to: Date!
+  }
+
+  input AppointmentObj {
+    dogId: ID!
+    providerId: ID!
     from: Date!
     to: Date!
   }
@@ -17,22 +29,22 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     email: String!
-    phoneNumber: String!
-    address: String!
+    phoneNumber: String
+    address: String
     about: String!
     service: Service
     appointments: [Appointment]
   }
 
+
   type User {
     _id: ID!
     name: String!
     email: String!
-    password: String!
-    phoneNumber: String!
-    address: String!
+    phoneNumber: String
+    address: String
     petsCount: Int!
-    petsunt: Int!
+    pets: [Dog]
   }
 
   type Auth {
@@ -44,8 +56,16 @@ const typeDefs = gql`
     _id: ID!
     name: String!
     email: String!
-    phoneNumber: String!
-    address: String!
+    phoneNumber: String
+    address: String
+  }
+
+  
+  input VeterinarianObj {
+    name: String!
+    email: String!
+    phoneNumber: String
+    address: String
   }
 
   type Dog {
@@ -55,7 +75,7 @@ const typeDefs = gql`
     age: Int!
     weight: Int!
     gender: String!
-    veterinerian: Veterinarian
+    veterinarian: Veterinarian
     medicated: Boolean!
     medications: String
   }
@@ -66,14 +86,14 @@ const typeDefs = gql`
     age: Int!
     weight: Int!
     gender: String!
-    veterinerian: Veterinarian
+    veterinarian: VeterinarianObj
     medicated: Boolean!
     medications: String
   }
 
   type Query {
     services: [Service]
-    providers: [Provider]
+    providers(service: Int): [Provider]
     provider(providerId: ID!): Provider
     me: User
   }
@@ -82,7 +102,7 @@ const typeDefs = gql`
     createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
     addDog(dog: DogObj!): User
     login(email: String!, password: String!): Auth
-    saveAppointment(appointment: Appointment!): Appointment
+    saveAppointment(appointment: AppointmentObj!): Appointment
   }
   
 `;

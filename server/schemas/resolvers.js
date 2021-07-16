@@ -9,11 +9,14 @@ const resolvers = {
     services: async () => {
       return Service.find();
     },
-    providers: async () => {
-      return Provider.find();
+    providers: async (parent, { service }, context) => {
+      if (service) {
+        return Provider.find({ service }).populate('service');
+      }
+      return Provider.find().populate('service');
     },
     provider: async (parent, { providerId }) => {
-      return Provider.findOne({ _id: providerId });
+      return Provider.findOne({ _id: providerId }).populate('service');
     },
     me: async (parent, args, context) => {
       // If user is authenticated

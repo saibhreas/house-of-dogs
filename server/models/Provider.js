@@ -13,7 +13,7 @@ const providerSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must use a valid email address'],
+    match: [/.+@.+\..+/, 'Must use a valid email add  ress'],
   },
   phoneNumber: {
     type: String,
@@ -26,8 +26,8 @@ const providerSchema = new Schema({
     type: String,
     trim: true,
   },
-  serviceId: {
-    type: mongoose.Types.ObjectId,
+  service: {
+    type: Number,
     ref: 'Service'
   },
   appointments: [AppointmentSchema]
