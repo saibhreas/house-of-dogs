@@ -2,25 +2,30 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import { CREATE_USER } from '../utils/mutations';
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({
+    email: '',
+    password: '',
+    name: '',
+    phoneNumber: '',
+    address: '',
+  });
+  const [createUser] = useMutation(CREATE_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
-    const mutationResponse = await addUser({
-      
+    const mutationResponse = await createUser({
       variables: {
         email: formState.email,
         password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        name: formState.name,
+        phoneNumber: formState.phoneNumber,
+        address: formState.address,
       },
     });
-    const token = mutationResponse.data.addUser.token;
+    const token = mutationResponse.data.createUser.token;
     Auth.login(token);
   };
 
@@ -40,22 +45,32 @@ function Signup(props) {
       <h2>Signup</h2>
       <form >
         <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstName">Full Name:</label>
           <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
+            placeholder="Name"
+            name="name"
+            type="text"
+            id="name"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
+          <label htmlFor="lastName">Address:</label>
           <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+            placeholder="Address"
+            name="address"
+            type="text"
+            id="address"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="lastName">Phone Number:</label>
+          <input
+            placeholder="Phone Number"
+            name="phoneNumber"
+            type="text"
+            id="phoneNumber"
             onChange={handleChange}
           />
         </div>

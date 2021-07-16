@@ -1,16 +1,20 @@
-//TODO: refract--do we need path here?
-const path = require('path');
-// TODO: 
-const mongoose = require('mongoose');
 const db = require('../config/connection');
 
+<<<<<<< HEAD
 const DogSeeds = require('./DogSeeds.json');
 const ProviderSeeds = require('./ProviderSeeds.json');
 const UserSeeds = require('./UserSeeds.json');
 const VeterinarianSeeds = require('./VeterinarianSeeds.json');
 const ServiceSeeds = require('./ServiceSeeds.json');
+=======
+const DogSeeds = require('./DogSeed.json');
+const ProviderSeeds = require('./ProviderSeed.json');
+const UserSeeds = require('./UserSeed.json');
+const ServiceSeeds = require('./ServiceSeed.json');
+>>>>>>> 2239cf1f76921dfb098f5d6d99bb5b53fa96860b
 
-const { User, Provider, Dog, Veterinarian, Service } = require('../models');
+const { User, Provider, Service } = require('../models');
+const { Dog } = require('../models/Dog');
 
 db.once('open', async () => {
   try {
@@ -19,51 +23,19 @@ db.once('open', async () => {
     await User.deleteMany({});
     await Provider.deleteMany({});
     await Dog.deleteMany({});
-    await Veterinarian.deleteMany({});
     await Service.deleteMany({});
 
     // ? CREATE
     await User.create(UserSeeds);
     await Provider.create(ProviderSeeds);
     await Dog.create(DogSeeds);
-    await Veterinarian.create(VeterinarianSeeds);
     await Service.create(ServiceSeeds);
-    // *TODO FOR LOOP FOR USER AND PROVIDER
-    for (let i = 0; i < UserSeeds.length; i++) {
-      const { _id, name } = await User.create(UserSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: name },
-        {
-          $addToSet: {
-            // TODO ask about endpoint  vs lesson material <Route exact path="/thoughts/:thoughtId">
-            userID: _id,
-          },
-        }
-      );
-    }
   } catch (err) {
     console.log(err);
     // process.exit(1);
   }
-  try {
-    for (let i = 0; i < ProviderSeeds.length; i++) {
-      const { _id, name } = await Provider.create(ProviderSeeds[i]);
-      const provider = await Provider.findOneAndUpdate(
-        { providerName: name },
-        {
-          $addToSet: {
-            // TODO ask about endpoint  vs lesson material <Route exact path="/thoughts/:thoughtId">
-            providerID: _id,
-          },
-        }
-      );
-    }
-  } catch (err) {
-    console.error(err);
-    // process.exit(1);
-  }
 
-    // ? COMPLETE
+  // ? COMPLETE
   console.log('all done!');
   process.exit(0);
 

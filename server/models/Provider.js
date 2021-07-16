@@ -6,30 +6,28 @@ const { AppointmentSchema } = require('./Appointment');
 const providerSchema = new Schema({
   name: {
     type: String,
-    required: true,   
+    required: true,
     trim: true,
   },
   email: {
     type: String,
     required: true,
-    match: [/.+@.+\..+/, 'Must use a valid email address'],
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email add  ress'],
   },
   phoneNumber: {
     type: String,
-    required: true,
-    minlength: 10,
   },
   address: {
     type: String,
     required: true,
-   
   },
   about: {
     type: String,
     trim: true,
   },
-  serviceId: {
-    type: mongoose.Types.ObjectId,
+  service: {
+    type: Number,
     ref: 'Service'
   },
   appointments: [AppointmentSchema]

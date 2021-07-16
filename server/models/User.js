@@ -25,13 +25,9 @@ const userSchema = new Schema(
     },
     phoneNumber: {
       type: String,
-      minlength: 10,
-      allowNull: true
     },
     address: {
       type: String,
-      allowNull: true
-      
     },
     pets: [DogSchema],
     appointments: [AppointmentSchema]

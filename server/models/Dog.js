@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { VeterinerianSchema } = require('./Veterinarian');
+const { VeterinarianSchema } = require('./Veterinarian');
 
 const DogSchema = new Schema({
   name: {
@@ -20,24 +20,20 @@ const DogSchema = new Schema({
   },
   weight: {
     type: Number,
-    required: true,
-    trim: true,
   },
   gender: {
     type: String,
-    required: true,
     trim: true,
   },
   medicated: {
     type: Boolean,
-    required: true,
-    trim: true,
+    default: false
   },
   medications: {
     type: String,
     trim: true,
   },
-  veterinerian: VeterinerianSchema
+  veterinarian: VeterinarianSchema
 });
 
 const Dog = mongoose.model('Dog', DogSchema);

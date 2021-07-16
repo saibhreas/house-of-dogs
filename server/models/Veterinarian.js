@@ -14,16 +14,12 @@ const VeterinarianSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
-    minlength: 10,
   },
   address: {
     type: String,
-    required: true,
-    unique: true
   },
 });
 
-const Veterinarian = mongoose.model('Veterinarian', veterinarianSchema);
+const Veterinarian = mongoose.model('Veterinarian', VeterinarianSchema);
 
 module.exports = { VeterinarianSchema, Veterinarian };

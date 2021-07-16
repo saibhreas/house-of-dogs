@@ -5,7 +5,12 @@
       "age": 1,
       "weight": 22,
       "gender": "male",
-      "veterinaryContact": "Fugiat enim non qui laboris est exercitation adipisicing dolore esse eiusmod quis ex laborum. Non ullamco nisi ipsum id irure tempor exercitation. Exercitation enim dolore nostrud eiusmod nostrud. Quis sint excepteur incididunt excepteur officia tempor minim. Labore aliqua aute eu Lorem anim eiusmod sint fugiat pariatur sint voluptate aliquip. Ut veniam sint sit eiusmod. Quis aliqua adipisicing labore labore est et adipisicing.\r\n",
+      "veterinarian": {
+        "name": "Waters Avila",
+        "email": "watersavila@quizka.com",
+        "phoneNumber": "+1 (864) 595-2622",
+        "address": "485 Poly Place, Seymour, Pennsylvania, 4134"
+      },
       "medicated": true,
       "medications": "ullamco ut occaecat"
     },
@@ -15,7 +20,12 @@
       "age": 1,
       "weight": 74,
       "gender": "female",
-      "veterinaryContact": "Aute qui duis consequat labore exercitation esse excepteur. Excepteur dolore consequat do magna nostrud. Esse ex esse cillum tempor do laboris culpa anim cupidatat irure aliquip. Nisi deserunt dolore id ad eu qui in irure excepteur incididunt. Qui irure qui minim sunt irure occaecat nisi.\r\n",
+      "veterinarian": {
+        "name": "Holder Alvarez",
+        "email": "holderalvarez@quizka.com",
+        "phoneNumber": "+1 (993) 565-2261",
+        "address": "910 Williamsburg Street, Konterra, Delaware, 5098"
+      },
       "medicated": true,
       "medications": "enim esse do"
     },
@@ -25,7 +35,12 @@
       "age": 1,
       "weight": 95,
       "gender": "female",
-      "veterinaryContact": "Reprehenderit sint ea voluptate minim excepteur sunt eiusmod aliquip Lorem et eiusmod irure. Exercitation culpa consectetur id minim proident nostrud adipisicing aliqua. Qui deserunt commodo magna fugiat labore labore dolore magna. Qui id culpa id laborum adipisicing amet commodo fugiat commodo. Id pariatur ex duis dolore laborum fugiat sunt excepteur laborum. Adipisicing irure pariatur elit ullamco in ut labore. Proident cupidatat reprehenderit nulla et quis.\r\n",
+      "veterinarian": {
+        "name": "Lou Giles",
+        "email": "lougiles@quizka.com",
+        "phoneNumber": "+1 (846) 549-2389",
+        "address": "343 Holt Court, Bawcomville, New Jersey, 6033"
+      },
       "medicated": true,
       "medications": "nulla sit minim"
     },
@@ -35,7 +50,12 @@
       "age": 1,
       "weight": 10,
       "gender": "male",
-      "veterinaryContact": "Ullamco dolor pariatur nostrud magna deserunt do in ex fugiat ex sint tempor nostrud cillum. Nulla mollit veniam in sint nulla id magna aliquip voluptate. Deserunt pariatur tempor minim velit ad. Labore dolore labore aliqua excepteur officia quis commodo. Enim commodo esse id reprehenderit cupidatat adipisicing.\r\n",
+      "veterinarian": {
+        "name": "June Kemp",
+        "email": "junekemp@quizka.com",
+        "phoneNumber": "+1 (899) 483-2806",
+        "address": "989 Crown Street, Lisco, Minnesota, 1987"
+      },
       "medicated": true,
       "medications": "eu dolore non"
     },
@@ -45,7 +65,12 @@
       "age": 1,
       "weight": 44,
       "gender": "male",
-      "veterinaryContact": "Eu aliquip consequat do velit. Irure quis irure amet nostrud adipisicing pariatur aliqua duis. Nostrud eu Lorem eiusmod officia commodo. Voluptate cupidatat do nostrud cupidatat do ut voluptate proident qui laboris qui. Laborum officia ea tempor ex adipisicing dolore incididunt ullamco dolore qui dolor qui.\r\n",
+      "veterinarian": {
+        "name": "Lynch Albert",
+        "email": "lynchalbert@quizka.com",
+        "phoneNumber": "+1 (821) 596-2744",
+        "address": "784 Anna Court, Disautel, Washington, 7520"
+      },
       "medicated": true,
       "medications": "ullamco anim ea"
     },
@@ -55,7 +80,12 @@
       "age": 1,
       "weight": 17,
       "gender": "male",
-      "veterinaryContact": "Adipisicing non proident nisi dolore elit. In sint anim minim incididunt commodo sit. Laborum enim aute consectetur pariatur tempor mollit exercitation incididunt dolore. Elit consequat deserunt quis cupidatat aliquip duis laboris ex reprehenderit.\r\n",
+      "veterinarian": {
+        "name": "Lopez Yang",
+        "email": "lopezyang@quizka.com",
+        "phoneNumber": "+1 (931) 482-3541",
+        "address": "862 Rockaway Parkway, Snelling, Michigan, 9760"
+      },
       "medicated": true,
       "medications": "sint culpa mollit"
     },
@@ -65,7 +95,12 @@
       "age": 1,
       "weight": 127,
       "gender": "female",
-      "veterinaryContact": "Mollit deserunt commodo labore ad sunt Lorem commodo laborum sit. Consequat excepteur ex ut in tempor aute veniam consequat adipisicing aliqua nostrud. Occaecat pariatur officia quis ipsum laborum aliqua culpa esse esse esse ut voluptate enim. Sint aliquip qui consectetur duis quis laborum sit id cillum nulla laboris.\r\n",
+      "veterinarian": {
+        "name": "Phelps Allison",
+        "email": "phelpsallison@quizka.com",
+        "phoneNumber": "+1 (854) 447-3093",
+        "address": "806 Benson Avenue, Swartzville, Louisiana, 4376"
+      },
       "medicated": true,
       "medications": "dolore ea non"
     }

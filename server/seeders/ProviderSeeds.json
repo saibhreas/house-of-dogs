@@ -2,61 +2,41 @@
     {
       "name": "Norris Woods",
       "email": "norriswoods@quizka.com",
-      "password": 123,
       "phoneNumber": "+1 (986) 482-3185",
       "address": "941 Brighton Court, Kohatk, Virgin Islands, 1572",
-      "veterinarian": [
-        "culpa",
-        "excepteur"
-      ],
+      "service": 1,
       "about": "Cillum Lorem ad sunt do cillum excepteur exercitation. Cupidatat qui commodo incididunt quis cupidatat exercitation consectetur in elit nisi do. Voluptate reprehenderit ea ea veniam est ipsum occaecat.\r\n"
     },
     {
       "name": "Kara Spears",
       "email": "karaspears@quizka.com",
-      "password": 123,
       "phoneNumber": "+1 (970) 500-3954",
       "address": "687 Elizabeth Place, Cornucopia, Alaska, 2399",
-      "veterinarian": [
-        "laboris",
-        "exercitation"
-      ],
+      "service": 2,
       "about": "Sunt mollit aliquip ipsum esse adipisicing excepteur duis est magna id. Aute deserunt sit ut reprehenderit eu minim occaecat ex quis ad. Do eiusmod ad et nostrud est. Dolor laboris dolor velit amet. Elit qui excepteur ex elit consequat do nostrud non tempor. Sunt ullamco et deserunt veniam officia ea mollit proident fugiat eiusmod.\r\n"
     },
     {
       "name": "Katy Short",
       "email": "katyshort@quizka.com",
-      "password": 123,
       "phoneNumber": "+1 (831) 593-3499",
       "address": "686 Clove Road, Dixie, Utah, 7525",
-      "veterinarian": [
-        "esse",
-        "laboris"
-      ],
+      "service": 3,
       "about": "Proident fugiat Lorem aliquip duis magna. Dolor sint aliquip nisi reprehenderit Lorem sit minim tempor ipsum irure et id Lorem ut. Sint velit proident adipisicing nisi fugiat ipsum aliquip pariatur officia aliquip. Officia est proident laborum dolor commodo cupidatat esse nisi sit ut ea adipisicing. Velit magna do non cupidatat nulla cillum sit velit amet. Incididunt ea tempor cupidatat velit velit cillum reprehenderit non. Est aliquip laboris est in adipisicing non non sit laborum eiusmod laborum quis.\r\n"
     },
     {
       "name": "Elba Huff",
       "email": "elbahuff@quizka.com",
-      "password": 123,
       "phoneNumber": "+1 (929) 401-2624",
       "address": "644 Whitwell Place, Brownlee, North Dakota, 637",
-      "veterinarian": [
-        "fugiat",
-        "minim"
-      ],
+      "service": 4,
       "about": "Ad nisi irure qui magna id. Labore aute sint cupidatat voluptate sunt commodo id adipisicing nisi deserunt et officia deserunt dolore. Do non cillum fugiat dolor in aliqua ipsum pariatur aliqua enim adipisicing id Lorem. Nisi aute occaecat aute veniam sit sit culpa ut. Proident officia elit Lorem magna duis anim commodo quis ea consequat aliqua proident et. Enim Lorem mollit pariatur laborum pariatur ullamco incididunt eu eiusmod ipsum quis. Consequat amet ipsum ea occaecat nostrud cupidatat deserunt excepteur pariatur voluptate dolore esse.\r\n"
     },
     {
       "name": "Hilary Solis",
       "email": "hilarysolis@quizka.com",
-      "password": 123,
       "phoneNumber": "+1 (925) 523-2290",
       "address": "529 Lincoln Avenue, Cowiche, Puerto Rico, 8487",
-      "veterinarian": [
-        "ullamco",
-        "reprehenderit"
-      ],
+      "service": 5,
       "about": "Esse consequat tempor consectetur anim nulla eu anim sit. Est eiusmod incididunt id officia nulla non. Excepteur aliqua elit sunt culpa enim et occaecat irure ea ad aliqua mollit pariatur. Voluptate Lorem eu consectetur commodo laboris nulla incididunt.\r\n"
     }
   ]

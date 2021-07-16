@@ -1,16 +1,17 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_PROVIDERS = gql`
-  query getProviders($service: ID) {
-    providers(service: $service) {
+  query Query($providersService: Int) {
+    providers(service: $providersService) {
       _id
       name
-      description
-      price
-      quantity
-      image
+      email
+      phoneNumber
+      address
+      about
       service {
         _id
+        name
       }
     }
   }
@@ -29,14 +30,24 @@ export const QUERY_ALL_PROVIDERS = gql`
     providers {
       _id
       name
-      description
-      price
-      quantity
+      email
+      phoneNumber
+      address
+      about
       service {
+        _id
         name
       }
-    }
+      appointments {
+        _id
+        userId
+        dogId
+        providerId
+        from
+        to
+      }
   }
+}
 `;
 
 export const QUERY_SERVICES = gql`
@@ -48,22 +59,18 @@ export const QUERY_SERVICES = gql`
   }
 `;
 
-export const QUERY_USER = gql`
+export const QUERY_ME = gql`
   {
-    user {
-      firstName
-      lastName
-      orders {
+    me {
+      _id
+      name
+      email
+      phoneNumber
+      address
+      petsCount
+      pets {
         _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
+        name
       }
     }
   }

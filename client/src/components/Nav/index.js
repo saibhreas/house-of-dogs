@@ -6,21 +6,38 @@ import "./index.css";
 function Nav() {
 
   function showNavigation() {
+
+    const user = Auth.getProfile();
+
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+        <div className="menu-nav">
+          <ul className="flex-row left-menu">
+            <li className="mx-2">
+              <Link to="/orderHistory">
+                My Appointments
+              </Link>
+            </li>
+            <li className="mx-2">
+              <Link to="/orderHistory">
+                Register a Dog
+              </Link>
+            </li>
+          </ul>
+          <ul className="flex-row right-menu">
+            <li className="mx-1">
+              <a href="/" onClick={() => {}}>
+                {user?.data?.name}
+              </a>
+            </li>
+            <li className="mx-1">
+              {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+              <a href="/" onClick={() => Auth.logout()}>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
       );
     } else {
       return (
@@ -49,7 +66,7 @@ function Nav() {
         </Link>
       </h1>
 
-      <nav>
+      <nav className="nav">
         {showNavigation()}
       </nav>
     </header>
