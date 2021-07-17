@@ -19,7 +19,6 @@ const typeDefs = gql`
   }
 
   input AppointmentObj {
-    user: ID!
     dog: ID!
     provider: ID!
     from: Date!
