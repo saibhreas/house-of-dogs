@@ -12,7 +12,7 @@ const typeDefs = gql`
   type Appointment {
     _id: ID!
     user: User!
-    dog: Dog!
+    dog: ID!
     provider: Provider!
     from: Date!
     to: Date!

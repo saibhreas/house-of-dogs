@@ -1,32 +1,38 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-import { CREATE_USER } from '../utils/mutations';
+import { Link, useParams } from 'react-router-dom';
+import { useMutation, useQuery } from '@apollo/client';
+import { MAKE_APPOINTMENT } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 
 function MakeAppointment(props) {
+  const { id, name } = useParams();
+
   const [formState, setFormState] = useState({
-    email: '',
-    password: '',
-    name: '',
-    phoneNumber: '',
-    address: '',
+    dog: '',
+    provider: id || '',
+    from: '',
+    to: '',
+    name: name || ''
   });
-  const [createUser] = useMutation(CREATE_USER);
+
+  const { data } = useQuery(QUERY_ME);
+  const user = data?.me;
+  const [makeAppointment] = useMutation(MAKE_APPOINTMENT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await createUser({
+    const mutationResponse = await makeAppointment({
       variables: {
-        email: formState.email,
-        password: formState.password,
-        name: formState.name,
-        phoneNumber: formState.phoneNumber,
-        address: formState.address,
+        appointment: {
+          dog: formState.dog,
+          provider: formState.provider,
+          from: formState.from,
+          to: formState.to,
+        }
       },
     });
-    const token = mutationResponse.data.createUser.token;
-    Auth.login(token);
+    const aptId = mutationResponse.data.makeAppointment;
+    window.location.assign('/success');
   };
 
   const handleChange = (event) => {
@@ -39,57 +45,49 @@ function MakeAppointment(props) {
 
   return (
     <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+      <Link to="/">← Go to Homepage</Link>
 
-      <h2>Signup</h2>
+      <br />
+      <br />
+      <h2>Make an Appointment with Provider</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
-          <label htmlFor="name">Full Name:</label>
+          <label htmlFor="provider">Provider:</label>
           <input
-            placeholder="Name"
-            name="name"
+            placeholder="Provider"
+            name="provider"
             type="text"
-            id="name"
+            id="provider"
+            disabled
+            value={formState.name}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="dog">Choose Pet:</label>
+          <select name="dog"
+            id="dog"
+            onChange={handleChange}>
+            <option selected disabled>Choose Dog</option>
+            {user?.pets?.map((dog) => (
+              <option key={dog._id} value={dog._id}>{dog.name}</option>
+            ))}
+          </select>
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="from">From Date:</label>
+          <input
+            name="from"
+            type="date"
+            id="from"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="to">To Date:</label>
           <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="address">Address:</label>
-          <input
-            placeholder="Address"
-            name="address"
-            type="text"
-            id="address"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="phoneNumber">Phone Number:</label>
-          <input
-            placeholder="Phone Number"
-            name="phoneNumber"
-            type="text"
-            id="phoneNumber"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
+            name="to"
+            type="date"
+            id="to"
             onChange={handleChange}
           />
         </div>

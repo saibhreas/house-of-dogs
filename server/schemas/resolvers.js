@@ -20,7 +20,7 @@ const resolvers = {
     me: async (parent, args, context) => {
       // If user is authenticated
       if (context.user) {
-        return await User.findOne({ _id: context.user._id })
+        const resp = await User.findOne({ _id: context.user._id })
           .populate({
             path: 'appointments',
             populate: [
@@ -29,6 +29,7 @@ const resolvers = {
             ]
           })
           .exec();
+        return resp;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
