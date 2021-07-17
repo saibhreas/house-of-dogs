@@ -10,6 +10,11 @@ function Profile() {
 
   if (data) {
     user = data.me;
+    console.log(user.appointments);
+  }
+
+  const getDogById = (dogId) => {
+    return user.pets.find(dog => dog._id === dogId);
   }
 
   return (
@@ -50,25 +55,27 @@ function Profile() {
                   <p className="m-0 font-sm-1">Age: {dog.age ? dog.age + ' years old' : 'No age specified'} </p>
                   <p className="m-0 font-sm-1">Weight: {dog.weight ? dog.weight + ' pounds' : 'No weight specified'} </p>
                   <p className="m-0 font-sm-1">Medication Notes: {dog.medications}</p>
-                  <p className="m-0 font-sm-1">Dog's Vet: {dog.veterinarian.name}</p>
+                  <p className="m-0 font-sm-1">Dog's Vet: {dog?.veterinarian?.name}</p>
                 </div>
               )) : 'No pets registered. Click "Register a Dog" link'}
             </div>
 
             <h2>Appointments History:</h2>
             {user.appointments.length > 0 ? user.appointments.map((ap) => (
-              <div key={ap._id} className="my-2">
-                <h3>
-                  {new Date(parseInt(ap.from)).toLocaleDateString()} -
-                  {new Date(parseInt(ap.to)).toLocaleDateString()}
-                </h3>
+              <div key={ap._id} className="my-2 appointment-card">
                 <div className="flex-row">
-                  <div className="card px-1 py-1">
+                  <div className="px-1 py-1">
+                    <span className="bold">Provider: </span>
                     <Link to={`/providers/${ap.provider._id}`}>
-                      <p>{ap.dog.name}</p>
+                      <span>{ap.provider.name}</span>
                     </Link>
                     <div>
-                      <span>${ap.provider.name}</span>
+                      <span className="bold">Booking Date:</span>
+                      <br />
+                      {new Date(ap.from).toLocaleDateString()} - {new Date(ap.to).toLocaleDateString()}
+                    </div>
+                    <div>
+                      <span className="bold">Pet:</span> <span>{getDogById(ap.dog).name}</span>
                     </div>
                   </div>
                 </div>
