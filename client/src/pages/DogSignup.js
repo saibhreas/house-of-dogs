@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_DOG } from '../utils/mutations';
 import dogFace from '../assets/dog_face.png';
+import Auth from '../utils/auth';
 
 function DogSignup(props) {
+
   const [formState, setFormState] = useState({
     name: '',
     breed: '',
@@ -17,30 +19,39 @@ function DogSignup(props) {
     vetAddress: '',
     medications: []
   });
+
   const [addDog] = useMutation(ADD_DOG);
+
+  if (!Auth.loggedIn()) {
+    return window.location.assign('/login');
+  }
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addDog({
-      variables: {
-        dog: {
-          name: formState.name,
-          breed: formState.breed,
-          age: Number(formState.age || 0),
-          weight: Number(formState.weight || 0),
-          gender: formState.gender,
-          medications: formState.medications,
-          veterinarian: {
-            name: formState.vetName || '',
-            email: formState.vetEmail || '',
-            address: formState.vetAddress || '',
-            phoneNumber: formState.vetPhoneNumber || '',
-          },
+    try {
+      const mutationResponse = await addDog({
+        variables: {
+          dog: {
+            name: formState.name,
+            breed: formState.breed,
+            age: Number(formState.age || 0),
+            weight: Number(formState.weight || 0),
+            gender: formState.gender,
+            medications: formState.medications,
+            veterinarian: {
+              name: formState.vetName || '',
+              email: formState.vetEmail || '',
+              address: formState.vetAddress || '',
+              phoneNumber: formState.vetPhoneNumber || '',
+            },
+          }
         }
-      }
-    });
-    // TODO - Do smth when dog is signed up 
-    window.location.assign('/profile');
+      });
+      window.location.assign('/profile');
+    } catch (err) {
+      console.log('Error while signing up dog: ', err);
+    }
   };
 
   const handleChange = (event) => {

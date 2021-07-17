@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { MAKE_APPOINTMENT } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
+import Auth from '../utils/auth';
 
 function MakeAppointment(props) {
   const { id, name } = useParams();
@@ -18,6 +19,10 @@ function MakeAppointment(props) {
   const { data } = useQuery(QUERY_ME);
   const user = data?.me;
   const [makeAppointment] = useMutation(MAKE_APPOINTMENT);
+
+  if (!Auth.loggedIn()) {
+    return window.location.assign('/login');
+  }
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();

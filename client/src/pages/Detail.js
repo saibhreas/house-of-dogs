@@ -4,12 +4,7 @@ import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 
 import { useStoreContext } from '../utils/GlobalState';
-import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-  ADD_TO_CART,
-  UPDATE_PROVIDERS,
-} from '../utils/actions';
+import { UPDATE_PROVIDERS } from '../utils/actions';
 import { QUERY_PROVIDERS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
@@ -22,7 +17,7 @@ function Detail() {
 
   const { loading, data } = useQuery(QUERY_PROVIDERS);
 
-  const { providers, cart } = state;
+  const { providers } = state;
 
   useEffect(() => {
     // already in global store
@@ -61,7 +56,7 @@ function Detail() {
 
   return (
     <>
-      {currentProvider && cart ? (
+      {currentProvider ? (
         <div className="container my-1">
           <Link to="/">← Back to Providers</Link>
 
