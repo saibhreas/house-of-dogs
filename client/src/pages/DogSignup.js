@@ -155,6 +155,17 @@ function DogSignup(props) {
           </div>
 
           <div className="flex-row space-between my-2">
+            <label htmlFor="vetEmail">Email:</label>
+            <input
+              placeholder="vet@ymail.com"
+              name="vetEmail"
+              type="email"
+              id="vetEmail"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex-row space-between my-2">
             <label htmlFor="vetAddress">Address:</label>
             <input
               placeholder="Address"
@@ -172,17 +183,6 @@ function DogSignup(props) {
               name="vetPhoneNumber"
               type="text"
               id="vetPhoneNumber"
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="flex-row space-between my-2">
-            <label htmlFor="vetEmail">Email:</label>
-            <input
-              placeholder="vet@ymail.com"
-              name="vetEmail"
-              type="email"
-              id="vetEmail"
               onChange={handleChange}
             />
           </div>
