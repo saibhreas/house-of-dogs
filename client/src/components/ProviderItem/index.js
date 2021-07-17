@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
-import { idbPromise } from "../../utils/helpers";
 import image1 from '../../assets/dog-service-1.png';
 import image2 from '../../assets/dog-service-2.png';
 import image3 from '../../assets/dog-service-3.png';
