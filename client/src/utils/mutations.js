@@ -12,20 +12,8 @@ export const LOGIN = gql`
 `;
 
 export const MAKE_APPOINTMENT = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        service {
-          name
-        }
-      }
-    }
+  mutation makeAppointment($appointment: AppointmentObj!) {
+    makeAppointment(appointment: $appointment)
   }
 `;
 

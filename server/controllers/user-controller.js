@@ -4,6 +4,7 @@ const { Appointment } = require('../models/Appointment');
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
+const mongoose = require('mongoose');
 
 module.exports = {
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
@@ -50,17 +51,20 @@ module.exports = {
   // creates an appointment between user (dog) and provider for a given date
   async makeAppointment({ appointment }, context) {
     if (context.user) {
-      console.log('appointment: ', appointment);
-      const newAppointment = await Appointment.create(appointment);
+      const newAppointment = await Appointment.create({
+        ...appointment,
+        user: context.user._id
+      });
+
       const provider = await Provider.findOne({ _id: appointment.provider });
       await Provider.findOneAndUpdate(
         { _id: appointment.provider },
-        { $addToSet: { appointments: newAppointment } },
+        { $addToSet: { appointments: newAppointment._id } },
         { new: true, runValidators: true }
       );
       const updatedUser = await User.findOneAndUpdate(
         { _id: context.user._id },
-        { $addToSet: { appointments: { ...newAppointment, provider } } },
+        { $addToSet: { appointments: newAppointment._id } },
         { new: true, runValidators: true }
       );
       return newAppointment._id;

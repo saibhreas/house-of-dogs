@@ -79,14 +79,14 @@ export const QUERY_ME = gql`
         }
       }
       appointments {
-        dog {
-          _id
-          name
-        }
+        _id
+        dog
         provider {
           _id
           name
         }
+        from
+        to
       }
     }
   }

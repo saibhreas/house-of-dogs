@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
+import Auth from '../utils/auth';
 
 function Profile() {
   const { data } = useQuery(QUERY_ME);
@@ -10,6 +11,14 @@ function Profile() {
 
   if (data) {
     user = data.me;
+  }
+
+  if (!Auth.loggedIn()) {
+    return window.location.assign('/login');
+  }
+
+  const getDogById = (dogId) => {
+    return user.pets.find(dog => dog._id === dogId);
   }
 
   return (
@@ -43,37 +52,45 @@ function Profile() {
 
             <div className="service-container">
               <h2>My pets:</h2>
-              {user.pets.length > 0 ? user.pets?.map((dog) => (
-                <div className="pet-container" key={dog._id}>
-                  <p className="m-0">🐕 {dog.name}</p>
-                  <p className="m-0 font-sm-1">Breed: {dog.breed}</p>
-                  <p className="m-0 font-sm-1">Age: {dog.age ? dog.age + ' years old' : 'No age specified'} </p>
-                  <p className="m-0 font-sm-1">Weight: {dog.weight ? dog.weight + ' pounds' : 'No weight specified'} </p>
-                  <p className="m-0 font-sm-1">Medication Notes: {dog.medications}</p>
-                  <p className="m-0 font-sm-1">Dog's Vet: {dog.veterinarian.name}</p>
-                </div>
-              )) : 'No pets registered. Click "Register a Dog" link'}
+              <div className="pets-container">
+                {user.pets.length > 0 ? user.pets?.map((dog) => (
+                  <div className="pet-container" key={dog._id}>
+                    <p className="m-0">🐕 {dog.name}</p>
+                    <p className="m-0 font-sm-1">Breed: {dog.breed}</p>
+                    <p className="m-0 font-sm-1">Age: {dog.age ? dog.age + ' years old' : 'No age specified'} </p>
+                    <p className="m-0 font-sm-1">Weight: {dog.weight ? dog.weight + ' pounds' : 'No weight specified'} </p>
+                    <p className="m-0 font-sm-1">Medication Notes: {dog.medications}</p>
+                    <p className="m-0 font-sm-1">Dog's Vet: {dog?.veterinarian?.name}</p>
+                  </div>
+                )) : 'No pets registered. Click "Register a Dog" link'}
+              </div>
+
             </div>
 
             <h2>Appointments History:</h2>
-            {user.appointments.length > 0 ? user.appointments.map((ap) => (
-              <div key={ap._id} className="my-2">
-                <h3>
-                  {new Date(parseInt(ap.from)).toLocaleDateString()} -
-                  {new Date(parseInt(ap.to)).toLocaleDateString()}
-                </h3>
-                <div className="flex-row">
-                  <div className="card px-1 py-1">
-                    <Link to={`/providers/${ap.provider._id}`}>
-                      <p>{ap.dog.name}</p>
-                    </Link>
-                    <div>
-                      <span>${ap.provider.name}</span>
+            <div className="appointments-container">
+              {user.appointments.length > 0 ? user.appointments.map((ap) => (
+                <div key={ap._id} className="my-2 appointment-card">
+                  <div className="flex-row">
+                    <div className="px-1 py-1">
+                      <span className="bold">Provider: </span>
+                      <Link to={`/providers/${ap.provider._id}`}>
+                        <span>{ap.provider.name}</span>
+                      </Link>
+                      <div>
+                        <span className="bold">Booking Date:</span>
+                        <br />
+                        {new Date(ap.from).toLocaleDateString()} - {new Date(ap.to).toLocaleDateString()}
+                      </div>
+                      <div>
+                        <span className="bold">Pet:</span> <span>{getDogById(ap.dog).name}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )) : 'No appointments so far'}
+              )) : 'No appointments so far'}
+            </div>
+
           </>
         ) : null}
       </div>

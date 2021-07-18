@@ -3,7 +3,10 @@ const { Schema } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const { DogSchema } = require('./Dog');
-const { AppointmentSchema } = require('./Appointment');
+const {
+  // AppointmentSchema,
+  Appointment
+} = require('./Appointment');
 
 const userSchema = new Schema(
   {
@@ -30,8 +33,8 @@ const userSchema = new Schema(
       type: String,
     },
     pets: [DogSchema],
-    // appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Appointment' }]
-    appointments: [AppointmentSchema]
+    appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Appointment' }]
+    // appointments: [AppointmentSchema]
   },
   {
     toJSON: {
