@@ -72,7 +72,6 @@ p {
 a {
   color: var(--tertiary);
   text-decoration: none;
-  font-weight: bold;
 }
 
 a:hover {
@@ -120,13 +119,17 @@ form {
   width: 40%;
 }
 
-input {
+input, select {
   font-size: 1rem;
   padding: 0.25rem;
   border: 1px solid var(--dark);
   outline: none;
   border-radius: 3px;
   transition: box-shadow 0.2s;
+}
+
+select {
+  width: 150px;
 }
 
 input:focus {
@@ -194,6 +197,18 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
+.p-0 {
+  padding: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .card {
   width: 25%;
   text-align: center;
@@ -207,4 +222,50 @@ input:focus {
   .card {
     width: 100%;
   }
+}
+
+.dog-signup img {
+  width: 140px;
+}
+
+.dog-signup-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dog-form {
+  width: 40%;
+}
+
+.veterinarian-form {
+  width: 40%;
+}
+
+.font-sm-1 {
+  font-size: 11px;
+}
+
+.pets-container {
+  display: flex;
+}
+
+.pet-container {
+  width: 200px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 20px 0 20px 20px;
+  margin: 10px;
+}
+
+.appointments-container {
+  display: flex;
+}
+
+.appointment-card {
+  border: 1px dashed grey;
+  border-radius: 4px;
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
 }

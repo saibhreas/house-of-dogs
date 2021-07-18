@@ -17,7 +17,8 @@ import DogSignup from './pages/DogSignup';
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
+import Profile from './pages/Profile';
+import MakeAppointment from './pages/MakeAppointment';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -50,8 +51,9 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/dog-signup" component={DogSignup} />
+              <Route exact path="/appointment/:id/:name" component={MakeAppointment} />
               <Route exact path="/success" component={Success} />
-              <Route exact path="/orderHistory" component={OrderHistory} />
+              <Route exact path="/profile" component={Profile} />
               <Route exact path="/providers/:id" component={Detail} />
               <Route component={NoMatch} />
             </Switch>

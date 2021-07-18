@@ -14,21 +14,21 @@ function Nav() {
         <div className="menu-nav">
           <ul className="flex-row left-menu">
             <li className="mx-2">
-              <Link to="/orderHistory">
-                My Appointments
+              <Link to="/profile">
+                My Profile
               </Link>
             </li>
             <li className="mx-2">
-              <Link to="/orderHistory">
+              <Link to="/dog-signup">
                 Register a Dog
               </Link>
             </li>
           </ul>
           <ul className="flex-row right-menu">
             <li className="mx-1">
-              <a href="/" onClick={() => {}}>
+              <Link to="/profile">
                 {user?.data?.name}
-              </a>
+              </Link>
             </li>
             <li className="mx-1">
               {/* this is not using the Link component to logout or user and then refresh the application to the start */}
