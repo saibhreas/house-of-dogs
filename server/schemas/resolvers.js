@@ -1,8 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth');
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-const { User, Dog, Provider, Service, Veterinarian } = require('../models');
-const { addDog, createUser, login } = require('../controllers/user-controller');
+const { User, Dog, Provider, Service, Veterinarian, Appointment } = require('../models');
+const { addDog, createUser, login, makeAppointment } = require('../controllers/user-controller');
 
 const resolvers = {
   Query: {
@@ -21,7 +20,16 @@ const resolvers = {
     me: async (parent, args, context) => {
       // If user is authenticated
       if (context.user) {
-        return await User.findOne({ _id: context.user._id });
+        const resp = await User.findOne({ _id: context.user._id })
+          .populate({
+            path: 'appointments',
+            populate: [
+              { path: 'user', model: User },
+              { path: 'provider', model: Provider },
+            ]
+          })
+          .exec();
+        return resp;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -35,6 +43,9 @@ const resolvers = {
     },
     login: (parent, { email, password }) => {
       return login({ email, password });
+    },
+    makeAppointment: async (parent, { appointment }, context) => {
+      return makeAppointment({ appointment }, context);
     },
   }
 

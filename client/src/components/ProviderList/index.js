@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ProductItem from '../ProductItem';
+import ProviderItem from '../ProviderItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PROVIDERS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
@@ -7,7 +7,7 @@ import { QUERY_PROVIDERS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function ProductList() {
+function ProviderList() {
   const [state, dispatch] = useStoreContext();
 
   const { currentService } = state;
@@ -48,14 +48,10 @@ function ProductList() {
       <h2>Dog Providers:</h2>
       {state.providers.length ? (
         <div className="flex-row">
-          {filterProviders().map((product) => (
-            <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
+          {filterProviders().map((provider) => (
+            <ProviderItem
+              key={provider._id}
+              item={provider}
             />
           ))}
         </div>
@@ -67,4 +63,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default ProviderList;

@@ -44,32 +44,12 @@ function Signup(props) {
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">Full Name:</label>
+          <label htmlFor="name">Full Name:</label>
           <input
             placeholder="Name"
             name="name"
             type="text"
             id="name"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Address:</label>
-          <input
-            placeholder="Address"
-            name="address"
-            type="text"
-            id="address"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Phone Number:</label>
-          <input
-            placeholder="Phone Number"
-            name="phoneNumber"
-            type="text"
-            id="phoneNumber"
             onChange={handleChange}
           />
         </div>
@@ -80,6 +60,26 @@ function Signup(props) {
             name="email"
             type="email"
             id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="address">Address:</label>
+          <input
+            placeholder="Address"
+            name="address"
+            type="text"
+            id="address"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="phoneNumber">Phone Number:</label>
+          <input
+            placeholder="Phone Number"
+            name="phoneNumber"
+            type="text"
+            id="phoneNumber"
             onChange={handleChange}
           />
         </div>

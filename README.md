@@ -33,6 +33,6 @@ App is Full Stack  Mongo Express...
 
 ### Authors
 
-  * Alex
+  * Alex Hello!
   * Chris :P
   * Siobhan: **Dolphins**, gotta love em!.

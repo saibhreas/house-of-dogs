@@ -11,21 +11,9 @@ export const LOGIN = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        service {
-          name
-        }
-      }
-    }
+export const MAKE_APPOINTMENT = gql`
+  mutation makeAppointment($appointment: AppointmentObj!) {
+    makeAppointment(appointment: $appointment)
   }
 `;
 
@@ -52,23 +40,12 @@ export const CREATE_USER = gql`
 
 export const ADD_DOG = gql`
   mutation addDog(
-    $name: String!
-    $breed: String!
-    $age: Number!
-    $weight: Number!
-    $gender: String!
+    $dog: DogObj!
   ) {
     addDog(
-      name: $name
-      breed: $breed
-      breed: $breed
-      age: $age
-      weight: $weight
-      gender: $gender
+      dog: $dog
     ) {
-      dog {
-        _id
-      }
+      name
     }
   }
 `;

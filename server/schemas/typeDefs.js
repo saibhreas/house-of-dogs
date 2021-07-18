@@ -11,16 +11,16 @@ const typeDefs = gql`
 
   type Appointment {
     _id: ID!
-    userId: ID!
-    dogId: ID!
-    providerId: ID!
+    user: User!
+    dog: ID!
+    provider: Provider!
     from: Date!
     to: Date!
   }
 
   input AppointmentObj {
-    dogId: ID!
-    providerId: ID!
+    dog: ID!
+    provider: ID!
     from: Date!
     to: Date!
   }
@@ -45,6 +45,7 @@ const typeDefs = gql`
     address: String
     petsCount: Int!
     pets: [Dog]
+    appointments: [Appointment]
   }
 
   type Auth {
@@ -60,7 +61,6 @@ const typeDefs = gql`
     address: String
   }
 
-  
   input VeterinarianObj {
     name: String!
     email: String!
@@ -87,7 +87,6 @@ const typeDefs = gql`
     weight: Int!
     gender: String!
     veterinarian: VeterinarianObj
-    medicated: Boolean!
     medications: String
   }
 
@@ -102,7 +101,7 @@ const typeDefs = gql`
     createUser(name: String!, email: String!, password: String!, phoneNumber: String, address: String): Auth
     addDog(dog: DogObj!): User
     login(email: String!, password: String!): Auth
-    saveAppointment(appointment: AppointmentObj!): Appointment
+    makeAppointment(appointment: AppointmentObj!): ID
   }
   
 `;
