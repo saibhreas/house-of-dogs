@@ -34,5 +34,5 @@ App is Full Stack  Mongo Express...
 ### Authors
 
   * Alex Hello!
-  * Chris :P
+  * Chris :P dolphins are testy
   * Siobhan: **Dolphins**, gotta love em!.
