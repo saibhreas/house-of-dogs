@@ -6,7 +6,7 @@
 
 ####  Deployments
 
-  * https://house-of-dogs.herokuapp.com/
+  * https://house-of-dogs-proj.herokuapp.com/
   * https://github.com/saibhreas/house-of-dogs
 
 ![Screen Capture](./client/src/assets/HOD_running.png)
