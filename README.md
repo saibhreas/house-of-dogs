@@ -79,4 +79,4 @@ Service providers get access to pet owners, use of cloud database for appointmen
 ### Authors
   * Alex Hello!
   * Chris :P dolphins are testy
-  * Siobhan: **Dolphins**, gotta love em!.
+  * Siobhan: **Dolphins**, gotta love em!. I'd eat em if chicke of the sea didn't talke them out of the net
