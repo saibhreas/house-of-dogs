@@ -3,9 +3,11 @@ const { Schema } =  mongoose;
 const bcrypt = require("bcrypt");
 
 const { DogSchema } = require('./Dog');
-const { AppointmentSchema } = require('./Appointment');
-//TODO: model needs to be adjusted to the form.  WE knwo form works with the rest of the app, so adjust the model.
-//Review front and make models, typedefs and resolver 
+const {
+  // AppointmentSchema,
+  Appointment
+} = require('./Appointment');
+
 const userSchema = new Schema(
   {
     name: {
@@ -30,8 +32,8 @@ const userSchema = new Schema(
       type: String,
     },
     pets: [DogSchema],
-    // appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Appointment' }]
-    appointments: [AppointmentSchema]
+    appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Appointment' }]
+    // appointments: [AppointmentSchema]
   },
   {
     toJSON: {

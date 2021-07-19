@@ -246,9 +246,26 @@ input:focus {
   font-size: 11px;
 }
 
+.pets-container {
+  display: flex;
+}
+
 .pet-container {
   width: 200px;
   border: 1px solid grey;
   border-radius: 4px;
   padding: 20px 0 20px 20px;
+  margin: 10px;
+}
+
+.appointments-container {
+  display: flex;
+}
+
+.appointment-card {
+  border: 1px dashed grey;
+  border-radius: 4px;
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
 }

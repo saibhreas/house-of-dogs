@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import Auth from '../utils/auth';
 
 import { useStoreContext } from '../utils/GlobalState';
-import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-  ADD_TO_CART,
-  UPDATE_PROVIDERS,
-} from '../utils/actions';
+import { UPDATE_PROVIDERS } from '../utils/actions';
 import { QUERY_PROVIDERS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
@@ -17,16 +13,16 @@ function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
-  const [currentProduct, setCurrentProduct] = useState({});
+  const [currentProvider, setcurrentProvider] = useState({});
 
   const { loading, data } = useQuery(QUERY_PROVIDERS);
 
-  const { providers, cart } = state;
+  const { providers } = state;
 
   useEffect(() => {
     // already in global store
     if (providers.length) {
-      setCurrentProduct(providers.find((product) => product._id === id));
+      setcurrentProvider(providers.find((product) => product._id === id));
     }
     // retrieved from server
     else if (data) {
@@ -50,63 +46,43 @@ function Detail() {
     }
   }, [providers, data, loading, dispatch, id]);
 
-  const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    if (itemInCart) {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      });
-      idbPromise('cart', 'put', {
-        ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      });
+  const bookProvider = () => {
+    if (Auth.loggedIn()) {
+      window.location.assign(`/appointment/${currentProvider._id}/${currentProvider.name}`);
     } else {
-      dispatch({
-        type: ADD_TO_CART,
-        product: { ...currentProduct, purchaseQuantity: 1 },
-      });
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+      window.location.assign('/login');
     }
-  };
-
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentProduct._id,
-    });
-
-    idbPromise('cart', 'delete', { ...currentProduct });
-  };
+  }
 
   return (
     <>
-      {currentProduct && cart ? (
+      {currentProvider ? (
         <div className="container my-1">
           <Link to="/">← Back to Providers</Link>
 
-          <h2>{currentProduct.name}</h2>
+          <h2>{currentProvider.name}</h2>
 
-          <p>{currentProduct.description}</p>
-
+          <p className="m-0">Email: {currentProvider.email}</p>
+          <p className="m-0">Phone: {currentProvider.phoneNumber}</p>
+          <p>Address: {currentProvider.address}</p>
           <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Book Provider</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
+            <strong>Service: </strong>
+            {currentProvider.service?.name}
           </p>
 
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
+          <p>
+            <strong>About:</strong>
+            <p>{currentProvider.about}</p>
+
+          </p>
+
+          <br />
+
+          <button onClick={bookProvider}>Book Provider</button>
+
         </div>
-      ) : null}
+      ) : null
+      }
       {loading ? <img src={spinner} alt="loading" /> : null}
     </>
   );

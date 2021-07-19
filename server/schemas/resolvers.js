@@ -21,10 +21,14 @@ const resolvers = {
       // If user is authenticated
       if (context.user) {
         const resp = await User.findOne({ _id: context.user._id })
-        // .populate('appointments')
-        // .populate('appointments.user')
-        // .populate('appointments.provider');
-        console.log('meeeeeee: ', resp);
+          .populate({
+            path: 'appointments',
+            populate: [
+              { path: 'user', model: User },
+              { path: 'provider', model: Provider },
+            ]
+          })
+          .exec();
         return resp;
       }
       throw new AuthenticationError('You need to be logged in!');

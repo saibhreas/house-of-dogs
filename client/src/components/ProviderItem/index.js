@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
-import { idbPromise } from "../../utils/helpers";
 import image1 from '../../assets/dog-service-1.png';
 import image2 from '../../assets/dog-service-2.png';
 import image3 from '../../assets/dog-service-3.png';
 import image4 from '../../assets/dog-service-4.png';
 import './index.css';
+import Auth from "../../utils/auth";
 
 const listImages = [image1, image2, image3, image4];
 
@@ -27,25 +25,12 @@ function ProviderItem(provider) {
   const { _id, name, email, phoneNumber } = item;
 
 
-  const addToCart = () => {
-    // const itemInCart = cart.find((cartItem) => cartItem._id === _id)
-    // if (itemInCart) {
-    //   dispatch({
-    //     type: UPDATE_CART_QUANTITY,
-    //     _id: _id,
-    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //   });
-    //   idbPromise('cart', 'put', {
-    //     ...itemInCart,
-    //     purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //   });
-    // } else {
-    //   dispatch({
-    //     type: ADD_TO_CART,
-    //     product: { ...item, purchaseQuantity: 1 }
-    //   });
-    //   idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
-    // }
+  const bookProvider = () => {
+    if (Auth.loggedIn()) {
+      window.location.assign(`/appointment/${_id}/${name}`);
+    } else {
+      window.location.assign('/login');
+    }
   }
 
 
@@ -64,7 +49,7 @@ function ProviderItem(provider) {
         <p className="m-0 font-sm-1">{email}</p>
         <p>{phoneNumber}</p>
       </div>
-      <button className="book-provider" onClick={addToCart}>Book Provider</button>
+      <button className="book-provider" onClick={bookProvider}>Book Provider</button>
     </div>
   );
 }

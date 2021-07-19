@@ -70,8 +70,6 @@ Service providers get access to pet owners, use of cloud database for appointmen
       * npm install stripe --save
 ### Technologies
 
-  * Stripe
-
   * Json Web Token
 
   * GraphQL
@@ -79,7 +77,6 @@ Service providers get access to pet owners, use of cloud database for appointmen
   * REACT
 
 ### Authors
-
-  * Alex
-  * Chris :P
-  * Siobhan: **Dolphins**, gotta love em!. yeah dolphins!  a yup!
+  * Alex Hello!
+  * Chris :P dolphins are testy
+  * Siobhan: **Dolphins**, gotta love em!.
