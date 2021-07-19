@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
-import image1 from '../../assets/dog-service-1.png';
+
+import { idbPromise } from "../../utils/helpers";
+
+import image1 from '../../assets/dog-ser-1.png';
 import image2 from '../../assets/dog-service-2.png';
 import image3 from '../../assets/dog-service-3.png';
 import image4 from '../../assets/dog-service-4.png';
