@@ -20,7 +20,7 @@ services range from:
   * Pet Groomers
   * Doggy daycare
   * Full Kennel Facilites
-Pet owners can shcedule with participating providers for pet services and prepay using Stripe to lock in appointments.
+Pet owners can schedule with participating providers for pet services and prepay using Stripe to lock in appointments.
 Service providers get access to pet owners, use of cloud database for appointment scheduling  and service fullfillment.
 
 ## Table of contents
