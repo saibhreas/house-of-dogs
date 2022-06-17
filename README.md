@@ -24,7 +24,7 @@ Pet owners can shcedule with participating providers for pet services and prepay
 Service providers get access to pet owners, use of cloud database for appointment scheduling  and service fullfillment.
 
 ## Table of contents
-  * [Description](##Description)
+  * [Description](#Description)
   * [Installation](###Instalation)
   * [Technologies](###Technologies)
   * [Authors](###Authors)
